@@ -13,18 +13,22 @@ updated: 2019-2-13
 
 ### 2.1 Prerequisite
 
-copy all the *.repo you needs to the path ``/etc/yum.repos.d/''
+2.1.1 copy all the *.repo you needs to the path ``/etc/yum.repos.d/''
 
-close selinux (vi /etc/selinux/config)
+2.1.2 close selinux (vi /etc/selinux/config)
 
 ```
 SELINUX=(enforcing --> disabled)
 ```
 
-disable firewalld
+2.1.3 disable firewalld
 ```
 systemctl stop firewalld
 systemctl disable firewalld
+```
+2.1.4 enable iptables
+```
+echo "1" >> /proc/sys/net/bridge/bridge-nf-call-iptables
 ```
 
 ### 2.2 Install Docker
