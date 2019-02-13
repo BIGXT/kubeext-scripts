@@ -1,7 +1,13 @@
 ## 1. Background
 
-  We assume you plan to run docker-based systems on CentOS 7, and this project aims to help users to install docker-based systems based on
-Yum.
+  We assume you plan to run docker-based systems on CentOS 7, and this project aims to help users to install docker-based systems based on Yum.
+
+| Name       | Version |
+| ------     | ------  | 
+| Docker     | 18.09   | 
+| Kubernetes | 1.13.3  | 
+
+updated: 2019-2-13
 
 ## 2. Steps
 
