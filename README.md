@@ -46,3 +46,5 @@ yum install kubeadm kubectl kubelet
 systemctl start kubelet 
 systemctl enable kubelet
 ```
+
+Next, please see project [syspods](https://github.com/kube-tools/syspods) to complete installation.
