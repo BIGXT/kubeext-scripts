@@ -47,4 +47,4 @@ systemctl start kubelet
 systemctl enable kubelet
 ```
 
-Next, please see project [syspods](https://github.com/kube-tools/syspods) to complete installation.
+Next, please see project [syspods](https://github.com/kubesys/kube-syspods) to complete installation.
