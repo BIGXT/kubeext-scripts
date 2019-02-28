@@ -7,7 +7,10 @@
 ############################################
 
 curl https://raw.githubusercontent.com/kubesys/kube-os/master/config > /etc/selinux/config
-\cp *.repo /etc/yum.repos.d/
+curl https://raw.githubusercontent.com/kubesys/kube-os/master/CentOS-OpenStack-rocky.repo > /etc/yum.repos.d/CentOS-OpenStack-rocky.repo
+curl https://raw.githubusercontent.com/kubesys/kube-os/master/CentOS-QEMU-EV.repo > /etc/yum.repos.d/CentOS-QEMU-EV.repo
+curl https://raw.githubusercontent.com/kubesys/kube-os/master/docker-ce.repo >  /etc/yum.repos.d/docker-ce.repo
+curl https://raw.githubusercontent.com/kubesys/kube-os/master/kubernetes.repo > /etc/yum.repos.d/kubernetes.repo
 systemctl stop firewalld
 systemctl disable firewalld
 yum install docker-ce qemu-kvm qemu-img openvswitch -y
