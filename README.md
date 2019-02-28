@@ -2,10 +2,10 @@
 
   We assume you plan to run docker-based systems on CentOS 7, and this project aims to help users to install docker-based systems based on Yum.
 
-| Name       | Version |
-| ------     | ------  | 
-| Docker     | 18.09   | 
-| Kubernetes | 1.13.3  | 
+| Name       | Version |  Docs  |   
+| ------     | ------  | ------ |
+| Docker     | 18.09   | [redhat](https://docs.docker.com/install/linux/docker-ee/rhel/), [SUSE](https://docs.docker.com/install/linux/docker-ee/suse/), [Oracle Linux](https://docs.docker.com/install/linux/docker-ee/oracle/),[centos](https://docs.docker.com/install/linux/docker-ce/centos/), [debian](https://docs.docker.com/install/linux/docker-ce/debian/), [fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), [ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/) |
+| Kubernetes | 1.13.3  | redhat/CentOS, ubuntu, SUSE/openSUSE |
 
 updated: 2019-2-13
 
