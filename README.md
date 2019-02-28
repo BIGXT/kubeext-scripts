@@ -12,28 +12,34 @@ Note that you should first disable selinux and firewalld of your OS.
 
 updated: 2019-2-28
 
-## 2. Steps
+## 2. All-in-one
+
+```
+curl https://raw.githubusercontent.com/kubesys/kube-os/master/install.sh | sh
+```
+
+## 3. Manual
 
 If you want to deploy the above softwares on CentOS 7, you can follow the steps.
 
-### 2.1 Prerequisite
+### 3.1 Prerequisite
 
 
-2.1.1 disable selinux (vi /etc/selinux/config)
+3.1.1 disable selinux (vi /etc/selinux/config)
 
 ```
 SELINUX=(enforcing --> disabled)
 ```
 
-2.1.2 copy all the *.repo you needs to the path ``/etc/yum.repos.d/''
+3.1.2 copy all the *.repo you needs to the path ``/etc/yum.repos.d/''
 
-2.1.3 disable firewalld
+3.1.3 disable firewalld
 ```
 systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-### 2.2 Install Docker
+### 3.2 Install Docker
 
 ```
 yum install docker-ce
@@ -41,21 +47,21 @@ systemctl start docker
 systemctl enable docker
 ```
 
-### 2.3 Install Kubernetes
+### 3.3 Install Kubernetes
 
 ```
-yum install kubeadm kubectl kubelet  or rpm --force -Uvh https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.x86_64.rpm
-systemctl start kubelet 
-systemctl enable kubelet
+yum install kubeadm kubectl kubelet  
+or 
+rpm --force -Uvh https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.x86_64.rpm
 ```
 
-### 2.4 Install kvm （option）
+### 3.4 Install kvm （option）
 
 ```
 yum install qemu-kvm qemu-img
 ```
 
-### 2.5 Install openvswitch （option）
+### 3.5 Install openvswitch （option）
 
 ```
 yum install openvswitch
