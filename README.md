@@ -7,6 +7,7 @@ Note that you should first disable selinux and firewalld of your OS.
 | ------     | ------  | ------ |
 | Docker     | 18.09   | [redhat](https://docs.docker.com/install/linux/docker-ee/rhel/), [SUSE](https://docs.docker.com/install/linux/docker-ee/suse/), [centos](https://docs.docker.com/install/linux/docker-ce/centos/), [debian](https://docs.docker.com/install/linux/docker-ce/debian/), [fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), [ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/) |
 | Kubernetes | 1.13.3  | [redhat/CentOS/SUSE/fedora](https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.x86_64.rpm), [ubuntu/debian](https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.amd64.deb) |
+| KVM        | 2.12   | [redhat/CentOS](https://docs.openstack.org/install-guide/environment-packages-rdo.html), [SUSE](https://docs.openstack.org/install-guide/environment-packages-obs.html), [ubuntu](https://docs.openstack.org/install-guide/environment-packages-ubuntu.html) |
 
 updated: 2019-2-28
 
@@ -49,6 +50,12 @@ systemctl enable docker
 yum install kubeadm kubectl kubelet  or rpm --force -Uvh https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.x86_64.rpm
 systemctl start kubelet 
 systemctl enable kubelet
+```
+
+### 2.4 Install kvm
+
+```
+yum install qemu-kvm qemu-img
 ```
 
 Next, please see project [syspods](https://github.com/kubesys/kube-syspods) to complete installation.
