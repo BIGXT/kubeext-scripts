@@ -32,10 +32,6 @@ SELINUX=(enforcing --> disabled)
 systemctl stop firewalld
 systemctl disable firewalld
 ```
-2.1.4 enable iptables
-```
-echo "1" >> /proc/sys/net/bridge/bridge-nf-call-iptables
-```
 
 ### 2.2 Install Docker
 
