@@ -46,7 +46,7 @@ systemctl enable docker
 ### 2.3 Install Kubernetes
 
 ```
-yum install kubeadm kubectl kubelet
+yum install kubeadm kubectl kubelet  or rpm --force -Uvh https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.x86_64.rpm
 systemctl start kubelet 
 systemctl enable kubelet
 ```
