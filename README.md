@@ -14,6 +14,8 @@ updated: 2019-2-28
 
 ## 2. All-in-one
 
+you can install all softwares except for section 3.6
+
 ```
 curl https://raw.githubusercontent.com/kubesys/kube-os/master/install.sh | sh
 ```
@@ -55,18 +57,28 @@ or
 rpm --force -Uvh https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.x86_64.rpm
 ```
 
-### 3.4 Install kvm （option）
+### 3.4 Install kvm （optional）
 
 ```
 yum install qemu-kvm qemu-img
 ```
 
-### 3.5 Install openvswitch （option）
+### 3.5 Install openvswitch （optional）
 
 ```
 yum install openvswitch
 systemctl start openvswitch 
 systemctl enable openvswitch
+```
+
+### 3.6 Config ovs
+
+Now, if you want to config ovs
+
+```
+wget https://raw.githubusercontent.com/kubesys/kube-os/master/ovs/auto.sh
+wget https://raw.githubusercontent.com/kubesys/kube-os/master/ovs/ifcfg-NIC.template
+bash auto.sh [network card name]
 ```
 
 Next, please see project [syspods](https://github.com/kubesys/kube-syspods) to complete installation.
