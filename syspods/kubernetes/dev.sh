@@ -27,5 +27,4 @@ function setupCluster()
   iptables -P FORWARD ACCEPT
 }
 
-bash pull.sh
 setupCluster
