@@ -14,10 +14,10 @@ updated: 2019-3-5
 
 ## 2. All-in-one
 
-you can install all softwares using the following script
+you can install all softwares on CentOS/RHEL 7.x using the following script
 
 ```
-curl https://github.com/kubesys/kubeos/releases/download/1.1/install.sh | sh
+curl https://github.com/kubesys/kubeos/releases/download/1.1/centos7.sh | sh
 ```
 
 ## 3. List
