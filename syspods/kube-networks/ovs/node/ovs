@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-#Written by SzaboD @ LeanNet
-#Please visit www.leannet.eu for more information
 
 #TODO: check dependencies... and python3...
 
@@ -18,14 +16,17 @@ import re
 def main():
     config = ''.join(sys.stdin.readlines()) # read config json from stdin into a string
 
-    config_parameters = get_parameters_from_config(config)
-    environment_parameters = get_parameters_from_environment_variables()
-    parameters = {**config_parameters, **environment_parameters}
+    config_parameters = json.dumps(get_parameters_from_config(config))
+    environment_parameters = json.dumps(get_parameters_from_environment_variables())
+    parameters = config_parameters[:-1] + "," + environment_parameters[1:]
+    parameters = json.loads(parameters)
 
     try:
         if parameters["command"] == "ADD":
             ipam_result = call_ipam_plugin(parameters["ipam"]["type"], config)
             ip, cidr, gw = get_ip_cidr_gw_from_ipam_result(ipam_result)
+
+            print (ip)
 
             create_ovs_bridge(parameters["bridge"], gw,  cidr)
             create_netns_link(parameters["container_pid"])
@@ -154,7 +155,8 @@ def set_up_port_inside_host(bridge, port, of_port_num):
     #print(".")
     call(["ip", "link", "set", port, "up"])
     #print("..")
-    if call(["ovs-vsctl", "add-port", bridge, port, "--", "set", "interface", port, "ofport_request=" + of_port_num]) != 0:
+    #if call(["ovs-vsctl", "add-port", bridge, port, "--", "set", "interface", port, "ofport_request=" + of_port_num]) != 0:
+    if call(["ovs-vsctl", "add-port", bridge, port]) != 0:
         sys.exit(0)
 
 
