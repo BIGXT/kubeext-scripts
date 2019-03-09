@@ -12,6 +12,11 @@ podcidr="192.168.0.0/16"
 function setupCluster()
 {
   swapoff -a
+  res=$(cat /etc/sysctl.conf | grep swappiness)
+  if [[ -z $res ]]
+  then
+    echo "vm.swappiness = 0">> /etc/sysctl.conf 
+  fi
   echo "1" > /proc/sys/net/bridge/bridge-nf-call-iptables
   rm -rf $HOME/.kube
   systemctl enable kubelet
