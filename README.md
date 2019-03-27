@@ -12,15 +12,8 @@ Note that you should first disable selinux and firewalld of your OS.
 
 updated: 2019-3-5
 
-## 2. All-in-one
 
-you can install all softwares on CentOS/RHEL 7.x using the following script
-
-```
-curl https://github.com/kubesys/kubeos/releases/download/1.1/centos7.sh | sh
-```
-
-## 3. List
+## 2. List
 
 - [repo](repo): yum client for CentOS.7x
 - [syspods](syspods): system pods 
