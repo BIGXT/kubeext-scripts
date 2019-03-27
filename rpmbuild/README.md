@@ -53,3 +53,9 @@ bash rpmbuilder build RpmFile
 ```
 
 5.从/root/rpmbuild/RPMS/x86_64/获取打好包的文件
+
+6.转deb包
+
+```
+alien *.rpm
+```
