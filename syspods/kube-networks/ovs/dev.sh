@@ -6,4 +6,8 @@
 ##
 ############################################
 
-kubectl create -f yamls/ovs.yaml
+\cp bridge /opt/cni/bin/bridge
+kubectl create -f yamls/flannel.yaml 
+kubectl create -f yamls/multus.yaml 
+kubectl create -f yamls/ovs-cni.yaml 
+kubectl create -f yamls/ovs-conf.yaml
