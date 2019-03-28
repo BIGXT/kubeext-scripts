@@ -22,6 +22,7 @@ updated: 2019-3-28
 
 ```
 git clone https://github.com/kubesys/kubeos.git
+rpm --force -Uvh https://github.com/kubesys/kubeos/releases/download/1.2/kube-tools-v1.13.5-cloudplus.1903.x86_64.rpm
 ```
 
 2.3 install kubernetes
