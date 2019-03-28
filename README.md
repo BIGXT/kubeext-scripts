@@ -14,7 +14,31 @@ Note that you should first disable selinux and firewalld of your OS.
 updated: 2019-3-28
 
 
-## 2. List
+## 2. Setup for CentOS7
+
+2.1 install docker, disable selinux and disable firwalld
+
+2.2 download kubeos
+
+```
+git clone https://github.com/kubesys/kubeos.git
+```
+
+2.3 install kubernetes
+
+```
+cd syspods/kube
+bash pull.sh
+bash dev.sh
+```
+
+2.4 install calico
+
+```
+cd syspods/plugins/calico
+bash dev.sh
+```
+## 3. List
 
 - [repo](repo): yum client for CentOS.7x
 - [syspods](syspods): system pods 
