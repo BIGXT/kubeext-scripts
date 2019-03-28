@@ -5,15 +5,15 @@
    
    **Must**
    1. [kubernetes](kubernetes)
-   2. [calico](kube-networks/calico), or [macvlan](kube-networks/macvlan), or [ovs](kube-networks/ovs)
+   2. [calico](plugins/calico), or [macvlan](plugins/macvlan), or [ovs](plugins/ovs)
    
 ## System pods  
 
-- [kubernetes](kubernetes)
-- networks
-  - [calico](networks/calico)
-  - [macvlan](networks/macvlan)
-  - [ovs](networks/ovs)
+- [kubernetes](kube)
+- network plugins
+  - [calico](plugins/calico)
+  - [macvlan](plugins/macvlan)
+  - [ovs](plugins/ovs)
 - images
 - logs
 - istio
