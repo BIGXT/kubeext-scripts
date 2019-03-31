@@ -32,9 +32,9 @@ spec:
         - name: REGISTRY_AUTH_HTPASSWD_PATH
           value: /auth/htpasswd
         - name: REGISTRY_HTTP_TLS_CERTIFICATE
-          value: /certs/ca.crt
+          value: /certs/domain.crt
         - name: REGISTRY_HTTP_TLS_KEY
-          value: /certs/ca.key
+          value: /certs/domain.key
       volumes:
       - name: images
         hostPath:

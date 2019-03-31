@@ -9,6 +9,8 @@
 kubectl create -f yamls/registry-insec.yaml
 kubectl create -f yamls/registry-svc.yaml
 
+openssl req -subj "/C=CN/ST=Beijing/L=Beijing/O=Cloudplus/OU=Cloudplus/CN=registry.com/emailAddress=registry@registry.com"  -newkey rsa:4096 -nodes -sha256 -keyout domain.key   -x509 -days 365 -out domain.crt
+
 #mkdir -p /etc/kubernetes/registry/{images,certs,auth}
 #docker run --rm --entrypoint htpasswd registry:2.7.1 -Bbn rob 1234 > /etc/kubernetes/registry/auth/htpasswd
 
