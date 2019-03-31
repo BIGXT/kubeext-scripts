@@ -6,8 +6,20 @@
 ##
 ##########################################
 
-VALUE=gcr.azk8s.cn/google_containers
-KEY=k8s.gcr.io
+VALUE1=gcr.azk8s.cn
+KEY1=gcr.io
+
+VALUE2=gcr.azk8s.cn/google_containers
+KEY2=k8s.gcr.io
+
+function download()
+{
+  name=${line//$1/$2}
+  echo docker pull $name
+  docker pull $name
+  docker tag $name $3
+  docker rmi $name
+}
 
 while read line
 do
@@ -16,10 +28,13 @@ do
     res=$(docker images | grep "$img" | grep "$ver" | grep -v grep)
     if [[ -z $res ]]
     then
-      name=${line//$KEY/$VALUE}
-      echo docker pull $name
-      docker pull $name
-      docker tag $name $line
-      docker rmi $name
+      prefix=$(echo $line | awk -F"/" '{print$1}')
+      if [[ "$prefix" == "$KEY1" ]]
+      then
+        download $KEY1 $VALUE1 $line
+      elif [[ "$prefix" == "$KEY2" ]]
+      then
+        download $KEY2 $VALUE2 $line
+      fi
     fi
 done < images.conf

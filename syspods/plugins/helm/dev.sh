@@ -12,11 +12,6 @@ function setupHelm()
   kubectl create serviceaccount --namespace kube-system tiller
   kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
   kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-  helm repo add monocular https://helm.github.io/monocular
-  helm install stable/nginx-ingress --set controller.hostNetwork=true 
-  helm install monocular/monocular
-  helm install monocular/monocular
-  kubectl get ingress
 }
 
 setupHelm
