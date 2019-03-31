@@ -14,6 +14,7 @@ openssl req -subj "/C=CN/ST=Beijing/L=Beijing/O=Cloudplus/OU=Cloudplus/CN=regist
 #mkdir -p /etc/kubernetes/registry/{images,certs,auth}
 #docker run --rm --entrypoint htpasswd registry:2.7.1 -Bbn rob 1234 > /etc/kubernetes/registry/auth/htpasswd
 
+# docker run -d --rm -p 8080:8080 -e REG1=http://192.168.44.129:5000/v2/  atcol/docker-registry-ui
 # yum install letsencrypt
 # letsencrypt certonly -d registry.com
 # /etc/letsencrypt/live/registry.com
