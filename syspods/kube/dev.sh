@@ -30,6 +30,8 @@ function setupCluster()
 
   kubectl taint nodes --all node-role.kubernetes.io/master-
   iptables -P FORWARD ACCEPT
+  hostname=$(hostname)
+  kubectl label nodes $hostname registry=registry --overwrite
 }
 
 setupCluster
