@@ -39,6 +39,45 @@ bash dev.sh
 cd syspods/plugins/calico
 bash dev.sh
 ```
+
+waiting for a few minutes, ensure that all pods are running
+
+```
+[root@iscassystems calico]# kubectl get po -n kube-system
+NAME                                       READY   STATUS    RESTARTS   AGE
+calico-etcd-94d8m                          1/1     Running   0          3m35s
+calico-kube-controllers-74887d7bdf-8j8ms   1/1     Running   2          5m42s
+calico-node-ms29r                          1/1     Running   4          5m42s
+coredns-86c58d9df4-cd5sz                   1/1     Running   0          18m
+coredns-86c58d9df4-kzgd7                   1/1     Running   0          18m
+etcd-iscassystems                          1/1     Running   0          18m
+kube-apiserver-iscassystems                1/1     Running   0          18m
+kube-controller-manager-iscassystems       1/1     Running   0          18m
+kube-proxy-gv74x                           1/1     Running   0          18m
+kube-scheduler-iscassystems                1/1     Running   0          18m
+```
+
+2.5 install helm
+
+```
+cd syspods/plugins/helm
+bash dev.sh
+```
+
+2.6 install dashboard
+
+```
+cd syspods/dash
+bash kubedash.sh
+```
+
+The outputs:
+```
+URL: https://<masterip>:32668
+token: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi05OTQyMiIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6ImQxNjUwNjNjLTUzNjEtMTFlOS1hNzg0LTAwMGMyOTA0NDI4NyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlLXN5c3RlbTprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.eMAcEsWKDhQMbkCog4QPXmkhLRJTpy_E0XnuoxcoSvKcyaCG5aFoq6bbNFmAMco-Wc-VdOnUvdoSwe1YEC67oZBDrcMfa3jtVnxfIBsBoA0Vj-CN-Sw0KMAdvy6qKq1pyh-fdm15lT25TwohF-aPOKX2ybUMYRFBgzB0ao0SQ_kzcDY-nswlifwg3MsNUG9y0MR8S5AAvC422FaJY1P0awLwbMu_WulE2AyjW1YTvUkemZYk8iEZgFTYYiq4veT6OZWm8-FfcL0ic69Stznk0qyWEPBwQn952-22S19PUlE0ZjrCNaVSFEDErjKkx4uBzIXlR6vmAaPL-Z3skXDw3w
+```
+
+
 ## 3. List
 
 - [repo](repo): yum client for CentOS.7x
