@@ -19,7 +19,12 @@ function setupCalico()
   done
   
   kubectl create -f yamls/etcd.yaml
-  kubectl create -f yamls/calico.yaml
+  podcidr=$(kubeadm config view | grep podSubnet | awk -F":" '{print$2}')
+  rm -rf calico.yaml
+  cp yamls/calico.yaml calico.yaml
+  sed -i "s:POD_CIDR:${podcidr}:g" calico.yaml
+  kubectl create -f calico.yaml
+  rm -rf calico.yaml
 }
 
 setupCalico
