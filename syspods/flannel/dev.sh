@@ -8,7 +8,7 @@
 
 function setupFlannel()
 {
-  kubectl create -f yamls/kube-flannel.yml
+  kubectl apply -f yamls/kube-flannel.yml
 }
 
 setupFlannel
