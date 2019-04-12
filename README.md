@@ -29,7 +29,7 @@ rpm --force -Uvh https://github.com/kubesys/kubeos/releases/download/1.2/kube-to
 2.3 install kubernetes
 
 ```
-cd syspods/kube
+cd syspods/kubernetes
 bash pull.sh
 bash dev.sh
 ```
@@ -37,7 +37,7 @@ bash dev.sh
 2.4 install calico
 
 ```
-cd syspods/plugins/calico
+cd syspods/calico
 bash dev.sh
 ```
 
@@ -61,14 +61,14 @@ kube-scheduler-iscassystems                1/1     Running   0          18m
 2.5 install helm
 
 ```
-cd syspods/plugins/helm
+cd syspods/helm
 bash dev.sh
 ```
 
 2.6 install dashboard
 
 ```
-cd syspods/dash
+cd syspods/webui
 bash kubedash.sh
 ```
 
