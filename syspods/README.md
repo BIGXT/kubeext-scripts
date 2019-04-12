@@ -5,15 +5,16 @@
    
    **Must**
    1. [kubernetes](kubernetes)
-   2. [calico](plugins/calico), or [macvlan](plugins/macvlan), or [ovs](plugins/ovs)
+   2. [flannel](flannel), [calico](calico), or [opnevswitch](openvswith)
    
 ## System pods  
 
-- [kubernetes](kube)
-- network plugins
-  - [calico](plugins/calico)
-  - [macvlan](plugins/macvlan)
-  - [ovs](plugins/ovs)
-- images
-- logs
-- istio
+- [kubernetes](kubernetes)
+- CNI
+  - [flannel](flannel)
+  - [calico](calico)
+  - [ovs](openvswitch)
+- registry
+   [distribution](distribution)
+- [monitoring](prometheus)
+
