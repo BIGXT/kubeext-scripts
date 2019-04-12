@@ -81,5 +81,5 @@ token: eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2Nv
 
 ## 3. List
 
-- [repo](repo): yum client for CentOS.7x
+- [repo](sysconfig): yum client for CentOS.7x
 - [syspods](syspods): system pods 
