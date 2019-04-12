@@ -15,6 +15,6 @@
   - [calico](calico)
   - [ovs](openvswitch)
 - registry
-   [distribution](distribution)
+  - [distribution](distribution)
 - [monitoring](prometheus)
 
