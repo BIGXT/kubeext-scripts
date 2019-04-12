@@ -6,8 +6,20 @@
 ##
 ############################################
 
+systemctl start openvswitch
+systemctl enable openvswitch
+
 \cp bridge /opt/cni/bin/bridge
-kubectl create -f yamls/flannel.yaml 
-kubectl create -f yamls/multus.yaml 
-kubectl create -f yamls/ovs-cni.yaml 
-kubectl create -f yamls/ovs-conf.yaml
+
+active=$(systemctl status openvswitch | grep Active | awk '{print$2}')
+
+if [[ $active != "active" ]]
+then
+  echo "please install openvswitch"
+  exit
+fi
+
+kubectl apply -f ../flannel/yamls/kube-flannel.yml
+kubectl apply -f yamls/multus.yaml 
+kubectl apply -f yamls/ovs-cni.yaml 
+kubectl apply -f yamls/ovs-conf.yaml
