@@ -17,4 +17,4 @@
 - registry
   - [distribution](distribution)
 - [monitoring](prometheus)
-
+- [logging](fluentd)
