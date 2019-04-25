@@ -6,13 +6,14 @@ Note that you should first disable selinux and firewalld of your OS.
 | Name       | Version |  Packages  |   
 | ------     | ------  | ------ |
 | Docker     | 18.09   | [redhat](https://docs.docker.com/install/linux/docker-ee/rhel/), [openSUSE/SUSE](https://docs.docker.com/install/linux/docker-ee/suse/), [centos](https://docs.docker.com/install/linux/docker-ce/centos/), [debian](https://docs.docker.com/install/linux/docker-ce/debian/), [fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), [ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/) |
-| Kubernetes | 1.13.5  | [redhat/CentOS/SUSE/openSUSE](https://github.com/kubesys/kubeos/releases/download/1.2/kube-tools-v1.13.5-cloudplus.1903.el7.x86_64.rpm), [ubuntu/debian](https://github.com/kubesys/kubeos/releases/download/1.2/kube-tools-v1.13.5-cloudplus.1903.amd64.deb) |
+| Kubernetes | 1.14.1  | [redhat/CentOS/SUSE/openSUSE](https://github.com/kubesys/kubeos/releases/download/1.2/kube-tools-v1.13.5-cloudplus.1903.el7.x86_64.rpm), [ubuntu/debian](https://github.com/kubesys/kubeos/releases/download/1.2/kube-tools-v1.13.5-cloudplus.1903.amd64.deb) |
 | Helm        | 2.13.1   | [Linux](https://storage.googleapis.com/kubernetes-helm/helm-v2.13.1-linux-amd64.tar.gz) |
 | KVM        | 2.12   | [redhat/CentOS](https://docs.openstack.org/install-guide/environment-packages-rdo.html), [openSUSE/SUSE](https://docs.openstack.org/install-guide/environment-packages-obs.html), [debian/ubuntu](https://docs.openstack.org/install-guide/environment-packages-ubuntu.html) |
 | openvswitch| 2.10   | [redhat/CentOS](http://docs.openvswitch.org/en/latest/intro/install/distributions/#red-hat), [openSUSE/SUSE](http://docs.openvswitch.org/en/latest/intro/install/distributions/#opensuse), [debian/ubuntu](http://docs.openvswitch.org/en/latest/intro/install/distributions/#debian) |
 | vpp        | 19.01  | [Linux](https://wiki.fd.io/view/VPP/Installing_VPP_binaries_from_packages) |
+| calico     | 3.6.1  | [Linux](https://www.projectcalico.org/) |
 
-updated: 2019-4-12
+updated: 2019-4-25
 
 
 ## 2. Setup for CentOS7
