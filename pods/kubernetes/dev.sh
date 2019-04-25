@@ -32,6 +32,7 @@ function setupCluster()
   iptables -P FORWARD ACCEPT
   hostname=$(hostname)
   kubectl label nodes $hostname registry=registry --overwrite
+  kubectl label nodes $hostname k8s-app=fluentd --overwrite
 }
 
 setupCluster
