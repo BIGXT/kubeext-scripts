@@ -5,7 +5,7 @@
    
    **Must**
    1. [kubernetes](kubernetes)
-   2. [flannel](flannel), [calico](calico), or [opnevswitch](openvswith)
+   2. [flannel](flannel), [calico](calico), or [openvswitch](openvswith)
    
 ## System pods  
 
