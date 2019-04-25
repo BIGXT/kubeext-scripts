@@ -6,4 +6,5 @@
 ##
 ############################################
 
-kubectl apply -f yamls/
+kubectl label namespace default istio-injection=enabled
+kubectl apply -f bookinfo.yaml
