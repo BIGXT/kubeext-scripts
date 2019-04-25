@@ -8,7 +8,7 @@
 
 function setupPrometheus()
 {
-  kubectl apply -f yamls/kube-fluentd.yaml
+  kubectl apply -f yamls/
 }
 
 setupPrometheus
