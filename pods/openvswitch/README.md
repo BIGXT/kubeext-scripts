@@ -1,6 +1,6 @@
 ## 1. Note
 
-- Please see https://github.com/kubevirt/ovs-cni
+- Please see https://github.com/alauda/kube-ovn.git
 
 ## 2. Reference
 - https://github.com/containernetworking/plugins/releases
