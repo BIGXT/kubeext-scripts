@@ -22,16 +22,19 @@ updated: 2019-4-25
 
 2.2 download kubeos
 
-```
-wget https://github.com/kubesys/kubeos/releases/download/1.4/kubeadm -P /usr/bin/kubeadm
-wget https://github.com/kubesys/kubeos/releases/download/1.4/kubectl -P /usr/bin/kubectl
-wget https://github.com/kubesys/kubeos/releases/download/1.4/kubelet -P /usr/bin/kubelet
+``
+1. using the original source to install kuberentes, kubelet and kubeadm (the lateset version), for example, the source from ubuntu 18.04:
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+Then you can update it: 
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
+apt-get update
 git clone https://github.com/kubesys/kubeos.git
 ```
 
 2.3 install kubernetes
 
 ```
+For latest version, calico cannot be properly installed. We recommend you to install flannel instead.
 cd pods/kubernetes
 bash pull.sh
 bash dev.sh
