@@ -6,7 +6,7 @@
 ##
 ############################################
 
-version="v1.14.1"
+version="v1.15.0"
 podcidr="192.192.0.0/16"
 
 function setupCluster()
@@ -28,7 +28,7 @@ function setupCluster()
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-  kubectl taint nodes --all node-role.kubernetes.io/master-
+#  kubectl taint nodes --all node-role.kubernetes.io/master-
   iptables -P FORWARD ACCEPT
   hostname=$(hostname)
   kubectl label nodes $hostname registry=registry --overwrite

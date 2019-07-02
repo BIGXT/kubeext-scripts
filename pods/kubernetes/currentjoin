@@ -1,0 +1,2 @@
+kubeadm join 172.17.104.191:6443 --token ncpnp2.y8585qpfdwtbo0l9 \
+    --discovery-token-ca-cert-hash sha256:0c4891357052d84f15c85c290a5e54d695aa1f3bbf11adeb721fa8780bc6ed90
