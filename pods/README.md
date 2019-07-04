@@ -2,19 +2,17 @@
 
    Providing system Pods for chinese users. Note that all scripts in this project only work on CentOS 7.x.
    
-   
-   **Must**
-   1. [kubernetes](kubernetes)
-   2. [flannel](flannel), [calico](calico), or [openvswitch](openvswith)
-   
-## System pods  
+## Container-based cluster
 
 - [kubernetes](kubernetes)
-- CNI
-  - [flannel](flannel)
-  - [calico](calico)
-  - [ovs](openvswitch)
-- registry
-  - [distribution](distribution)
+- [openvswitch](openvswitch)
+- [registry](distribution)
+- [monitoring](prometheus)
+- [logging](fluentd)
+
+## VM-based cluster
+- [kubernetes](kubernetes)
+- [openvswitch](openvswitch)
+- [registry](distribution)
 - [monitoring](prometheus)
 - [logging](fluentd)
