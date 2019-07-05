@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox1
+  namespace: test 
+spec:
+  containers:
+  - name: busybox1
+    image: busybox
+    command:
+    - sleep
+    - "3600"
