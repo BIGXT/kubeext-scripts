@@ -64,7 +64,6 @@ function setupCluster()
 
 function setupOvs()
 {
-  host=$(hostname)
   yum install -y openvswitch libibverbs -y
   systemctl start openvswitch
   systemctl enable openvswitch
@@ -73,6 +72,13 @@ function setupOvs()
   kubectl delete namespace kube-ovn
 }
 
+function setupAppController()
+{
+  kubectl apply -f yamls/kubeappc.yaml
+  kubectl delete namespace kruise-system
+}
+
 pullImages
 setupCluster
 setupOvs
+setupAppController

@@ -16,7 +16,7 @@ prefix="registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/"
 for img in `cat kubeovs.yaml | grep "image:"  | awk -F"\"" '{print$2}'`
 do
   echo "docker pull "$img 
-  docker pull img
+  docker pull $img
   name=$(echo $img | awk -F":" '{print$1}' | awk -F"/" '{print$NF}')
   echo "docker tag $img $prefix$name$version"
   docker tag $img $prefix$name$version

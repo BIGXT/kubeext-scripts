@@ -22,6 +22,7 @@ bash dev.sh
 # Components
 
 - [Kubernetes](https://github.com/kubernetes/kubernetes):  Automated container deployment, scaling, and management 
-- [Openvswitch CNI](https://github.com/alauda/kube-ovn): An OVN-based Kubernetes Network Fabric for Enterprises
+- [Openvswitch CNI](https://github.com/alauda/kube-ovn): An OVN-based Kubernetes network fabric for enterprises
+- [AppController](https://github.com/openkruise/kruise): Automate application workloads management on Kubernetes 
 
 
