@@ -9,8 +9,7 @@
 version=$(kubeadm version | awk -F"GitVersion:\"" '{print$2}' | awk -F"\"" '{print$1}')
 
 KEY=k8s.gcr.io
-VALUE1=index.alauda.cn/alaudak8s
-VALUE2=gcr.azk8s.cn/google_containers
+VALUE=gcr.azk8s.cn/google_containers
 
 function download()
 {
@@ -31,8 +30,7 @@ function pullImages()
     res=$(docker images | grep "$img" | grep "$ver" | grep -v grep)
     if [[ -z $res ]]
     then
-      download $KEY $VALUE1 $line
-      download $KEY $VALUE2 $line
+      download $KEY $VALUE $line
     fi
   done < images.conf
 }
@@ -71,9 +69,8 @@ function setupOvs()
   systemctl start openvswitch
   systemctl enable openvswitch
   kubectl label node $host kube-ovn/role=master
-  #kubectl apply -f yamls/kubeovs.yaml
-  kubectl apply -f https://raw.githubusercontent.com/alauda/kube-ovn/master/yamls/ovn.yaml
-  kubectl apply -f https://raw.githubusercontent.com/alauda/kube-ovn/master/yamls/kube-ovn.yaml
+  kubectl apply -f yamls/kubeovs.yaml
+  kubectl delete namespace kube-ovn
 }
 
 pullImages
