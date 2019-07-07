@@ -22,7 +22,7 @@ systemctl disable firewalld
 ### 1.2 Install Docker
 
 ```
-yum install docker-ce
+yum install docker-ce-18.06*
 systemctl start docker 
 systemctl enable docker
 ```
@@ -30,21 +30,19 @@ systemctl enable docker
 ### 1.3 Install Kubernetes
 
 ```
-yum install kubeadm kubectl kubelet  
-or 
-rpm --force -Uvh https://github.com/kubesys/kube-os/releases/download/1.0/kube-tools-v1.13.3-cloudplus.1903.x86_64.rpm
+yum install kubeadm-1.14.3 kubectl-1.14.3 kubelet-1.14.3  
 ```
 
 ### 1.4 Install kvm （optional）
 
 ```
-yum install qemu-kvm qemu-img
+yum install libvirt qemu-kvm qemu-img
 ```
 
 ### 1.5 Install openvswitch （optional）
 
 ```
-yum install openvswitch
+yum install openvswitch-2.11*
 systemctl start openvswitch 
 systemctl enable openvswitch
 ```
