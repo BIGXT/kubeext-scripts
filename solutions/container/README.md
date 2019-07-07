@@ -27,7 +27,7 @@ bash dev.sh
 - [Pipeline on Kubernetes](https://github.com/tektoncd/pipeline): It provides k8s-style resources for declaring CI/CD-style pipelines
 - [Online diagnostic tool for Kubernetes](https://github.com/reactiveops/polaris): Validation of best practices in your Kubernetes clusters 
 - [Offline diagnostic tool for Kubernetes](https://github.com/heptio/sonobuoy): It provides a diagnostic tool that makes it easier to understand the state of a Kubernetes cluster by running a set of Kubernetes conformance tests in an accessible and non-destructive manner.
-- ~~- [Streaming workloads on Kubernetes](https://github.com/strimzi/strimzi-kafka-operator): Apache Kafka running on Kubernetes ~~
+- ~~[Streaming workloads on Kubernetes](https://github.com/strimzi/strimzi-kafka-operator): Apache Kafka running on Kubernetes~~
 
 
 # Advanced features
