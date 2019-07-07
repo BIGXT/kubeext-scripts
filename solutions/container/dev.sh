@@ -7,7 +7,7 @@
 ############################################
 
 version=$(kubeadm version | awk -F"GitVersion:\"" '{print$2}' | awk -F"\"" '{print$1}')
-
+podcidr="192.192.0.0/16"
 KEY=k8s.gcr.io
 VALUE=gcr.azk8s.cn/google_containers
 
@@ -50,9 +50,9 @@ function setupCluster()
   rm -rf $HOME/.kube
   systemctl enable kubelet
   systemctl start kubelet
-  
-  echo "kubeadm init --kubernetes-version=$version --token-ttl=0"
-  kubeadm init --kubernetes-version=$version --token-ttl=0 
+ 
+  echo "kubeadm init --kubernetes-version=$version --pod-network-cidr=$podcidr --token-ttl=0"
+  kubeadm init --kubernetes-version=$version --pod-network-cidr=$podcidr --token-ttl=0  
   
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -72,13 +72,25 @@ function setupOvs()
   kubectl delete namespace kube-ovn
 }
 
-function setupAppController()
+function setupStateful()
 {
   kubectl apply -f yamls/kubeappc.yaml
   kubectl delete namespace kruise-system
 }
 
+function setupStreaming()
+{
+  kubectl apply -f yamls/kubestream.yaml
+}
+
+function setupFlannel()
+{
+  kubectl apply -f yamls/flannel.yml
+}
+
 pullImages
 setupCluster
-setupOvs
-setupAppController
+setupFlannel
+#setupOvs
+#setupStateful
+#setupStreaming
