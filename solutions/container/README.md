@@ -5,13 +5,12 @@ This is a management platform for containerized applications.
 
 # Quick start
 
-We assume you have installed the following softwares on your machine:
+We assume you have stopped/disabled the selinux and firewalld services, 
+and you have installed the following softwares on your machine, see the [tutorial](../../configs/README.md):
 
 - Docker: 18.06
 - kubeadm/kubelet/kubectl: 1.14.3
 - openvswitch: 2.11
-
-In addition,  you have stopped/disabled the selinux and firewalld services.
 
 Now you can install the platform using the following command (you may try twice).
 
