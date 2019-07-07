@@ -8,8 +8,12 @@
 
 version=$(kubeadm version | awk -F"GitVersion:\"" '{print$2}' | awk -F"\"" '{print$1}')
 podcidr="192.192.0.0/16"
-KEY=k8s.gcr.io
-VALUE=gcr.azk8s.cn/google_containers
+
+VALUE1=gcr.azk8s.cn
+KEY1=gcr.io
+
+VALUE2=gcr.azk8s.cn/google_containers
+KEY2=k8s.gcr.io
 
 function download()
 {
@@ -30,7 +34,14 @@ function pullImages()
     res=$(docker images | grep "$img" | grep "$ver" | grep -v grep)
     if [[ -z $res ]]
     then
-      download $KEY $VALUE $line
+      prefix=$(echo $line | awk -F"/" '{print$1}')
+      if [[ "$prefix" == "$KEY1" ]]
+      then
+        download $KEY1 $VALUE1 $line
+      elif [[ "$prefix" == "$KEY2" ]]
+      then
+        download $KEY2 $VALUE2 $line
+      fi
     fi
   done < images.conf
 }
