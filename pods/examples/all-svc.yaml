@@ -1,11 +1,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: solo-service
+  name: solo-service3
   namespace: default
 spec:
   selector:
-    app: solo-server
+    type: solo
   type: NodePort
   ports:
     - protocol: TCP
