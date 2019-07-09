@@ -99,9 +99,17 @@ function setupFlannel()
   kubectl apply -f yamls/flannel.yml
 }
 
+function setupMonitoring()
+{
+  kubectl apply -f yamls/kubemonitor.yaml
+  kubectl apply -f yamls/kubemonitor.yaml
+  kubectl delete ns monitoring
+}
+
 pullImages
 setupCluster
-setupFlannel
+#setupFlannel
 #setupOvs
 #setupStateful
 #setupStreaming
+#setupMonitoring
