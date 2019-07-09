@@ -23,7 +23,7 @@ bash dev.sh
 - [Kubernetes compute cluster](https://github.com/kubernetes/kubernetes):  Automated container deployment, scaling, and management 
 - [Advanced Kubernetes network](https://github.com/alauda/kube-ovn): An OVN-based Kubernetes network fabric for enterprises
 - [Stateful application on Kubernetes](https://github.com/openkruise/kruise): Automate application workloads management on Kubernetes 
-- [Kubernetes monitoring](https://github.com/giantswarm/prometheus): The Prometheus monitoring system and time series database
+- [Kubernetes monitoring](https://github.com/coreos/kube-prometheus): The Prometheus monitoring system and time series database
 - [MachineLearning workloads on Kubernetes](https://github.com/PipelineAI/pipeline): Real-time enterprise AI platform
 - [Pipeline on Kubernetes](https://github.com/tektoncd/pipeline): It provides k8s-style resources for declaring CI/CD-style pipelines
 - [Online diagnostic tool for Kubernetes](https://github.com/reactiveops/polaris): Validation of best practices in your Kubernetes clusters 
