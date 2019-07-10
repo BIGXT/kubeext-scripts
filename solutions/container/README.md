@@ -24,10 +24,11 @@ bash dev.sh
 - [Advanced Kubernetes network](https://github.com/alauda/kube-ovn): An OVN-based Kubernetes network fabric for enterprises
 - [Stateful application on Kubernetes](https://github.com/openkruise/kruise): Automate application workloads management on Kubernetes 
 - [Kubernetes monitoring](https://github.com/coreos/kube-prometheus): The Prometheus monitoring system and time series database
-- [MachineLearning workloads on Kubernetes](https://github.com/PipelineAI/pipeline): Real-time enterprise AI platform
+- [Kubernetes logging](https://github.com/grafana/loki): Loki is a horizontally-scalable, highly-available, multi-tenant log aggregation system inspired by Prometheus
 - [Pipeline on Kubernetes](https://github.com/tektoncd/pipeline): It provides k8s-style resources for declaring CI/CD-style pipelines
-- [Online diagnostic tool for Kubernetes](https://github.com/reactiveops/polaris): Validation of best practices in your Kubernetes clusters 
-- [Offline diagnostic tool for Kubernetes](https://github.com/heptio/sonobuoy): It provides a diagnostic tool that makes it easier to understand the state of a Kubernetes cluster by running a set of Kubernetes conformance tests in an accessible and non-destructive manner.
+- [Online configuration diagnostic tool for Kubernetes](https://github.com/reactiveops/polaris): Validation of best practices in your Kubernetes clusters 
+- ~~[Offline diagnostic tool for Kubernetes](https://github.com/heptio/sonobuoy): It provides a diagnostic tool that makes it easier to understand the state of a Kubernetes cluster by running a set of Kubernetes conformance tests in an accessible and non-destructive manner.~~
+- ~~[MachineLearning workloads on Kubernetes](https://github.com/PipelineAI/pipeline): Real-time enterprise AI platform~~
 - ~~[Streaming workloads on Kubernetes](https://github.com/strimzi/strimzi-kafka-operator): Apache Kafka running on Kubernetes~~
 
 
