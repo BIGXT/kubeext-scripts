@@ -16,23 +16,27 @@ and you have installed the following softwares on your machine, see the [tutoria
 private network
 ```
 rpm --force -Uvh http://133.133.135.22/cloudplus/kube-tools-v1.14.3-cloudplus.1906.el7.x86_64.deb
+rpm --force -Uvh http://133.133.135.22/cloudplus/kube-setup-v1.14.3-cloudplus.1906.el7.x86_64.deb
 or
 rpm --force -Uvh http://133.133.135.22/cloudplus/kube-tools-v1.14.3-cloudplus.1906.el7.x86_64.rpm
+rpm --force -Uvh http://133.133.135.22/cloudplus/kube-setup-v1.14.3-cloudplus.1906.el7.x86_64.rpm
 yum install docker
 ```
 
 public network
 ```
 http://39.107.241.0/cloudplus/kube-tools-v1.14.3-cloudplus.1906.el7.x86_64.deb
+http://39.107.241.0/cloudplus/kube-setup-v1.14.3-cloudplus.1906.el7.x86_64.deb
 or
 http://39.107.241.0/cloudplus/kube-tools-v1.14.3-cloudplus.1906.el7.x86_64.rpm
+http://39.107.241.0/cloudplus/kube-setup-v1.14.3-cloudplus.1906.el7.x86_64.rpm
 yum install docker
 ```
 
 Now you can install the platform using the following command (you may try twice).
 
 ```
-bash dev.sh
+kubesetup
 ```
 
 # Components
