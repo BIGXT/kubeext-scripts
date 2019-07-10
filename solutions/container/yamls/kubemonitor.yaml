@@ -32162,7 +32162,7 @@ spec:
         app: grafana
     spec:
       containers:
-      - image: grafana/grafana:6.2.2
+      - image: grafana/grafana:6.2.5
         name: grafana
         ports:
         - containerPort: 3000
@@ -32510,7 +32510,7 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: metadata.namespace
-        image: k8s.gcr.io/addon-resizer:1.8.4
+        image: k8s.gcr.io/addon-resizer:1.8.5
         name: addon-resizer
         resources:
           limits:
@@ -32932,7 +32932,7 @@ spec:
         - --metrics-relist-interval=1m
         - --prometheus-url=http://prometheus-k8s.monitoring.svc:9090/
         - --secure-port=6443
-        image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.4.1
+        image: quay.io/coreos/k8s-prometheus-adapter-amd64:v0.5.0
         name: prometheus-adapter
         ports:
         - containerPort: 6443
