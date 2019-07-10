@@ -32,7 +32,8 @@ bash dev.sh
 - ~~[Streaming workloads on Kubernetes](https://github.com/strimzi/strimzi-kafka-operator): Apache Kafka running on Kubernetes~~
 
 **Tools**
-[kubecrt](https://github.com/blendle/kubecrt):Convert Helm charts to Kubernetes resources.
+
+- [helm-convert](https://github.com/ContainerSolutions/helm-convert):Convert Helm charts to Kubernetes resources.
 
 # Advanced features
 
