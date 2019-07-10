@@ -31,6 +31,8 @@ bash dev.sh
 - ~~[MachineLearning workloads on Kubernetes](https://github.com/PipelineAI/pipeline): Real-time enterprise AI platform~~
 - ~~[Streaming workloads on Kubernetes](https://github.com/strimzi/strimzi-kafka-operator): Apache Kafka running on Kubernetes~~
 
+**Tools**
+[kubecrt](https://github.com/blendle/kubecrt):Convert Helm charts to Kubernetes resources.
 
 # Advanced features
 
