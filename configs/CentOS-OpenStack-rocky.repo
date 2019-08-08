@@ -5,7 +5,7 @@
 
 [centos-openstack-rocky]
 name=CentOS-7 - OpenStack rocky
-baseurl=http://mirror.centos.org/$contentdir/$releasever/cloud/$basearch/openstack-rocky/
+baseurl=http://mirror.centos.org/centos-7/7/cloud/x86_64/openstack-rocky/
 gpgcheck=0
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Cloud
