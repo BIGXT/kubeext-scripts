@@ -6,7 +6,7 @@
 ##
 ############################################
 
-version="v1.14.5"
+version="v1.14.6"
 podcidr="192.192.0.0/16"
 
 function setupCluster()
@@ -18,7 +18,7 @@ function setupCluster()
     echo "vm.swappiness = 0">> /etc/sysctl.conf 
   fi
   echo "1" > /proc/sys/net/bridge/bridge-nf-call-iptables
-  echo "1" > /proc/sys/net/ipv4/ip_forward
+  echo "1" > /proc/sys/net/ipv4/ip_forward >/dev/null
   rm -rf $HOME/.kube
   systemctl enable kubelet
   systemctl start kubelet
@@ -28,12 +28,12 @@ function setupCluster()
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  iptables -P FORWARD ACCEPT
 
 #  kubectl taint nodes --all node-role.kubernetes.io/master-
-  iptables -P FORWARD ACCEPT
-  hostname=$(hostname)
-  kubectl label nodes $hostname registry=registry --overwrite
-  kubectl label nodes $hostname k8s-app=fluentd --overwrite
+#  hostname=$(hostname)
+#  kubectl label nodes $hostname registry=registry --overwrite
+#  kubectl label nodes $hostname k8s-app=fluentd --overwrite
 }
 
 setupCluster
