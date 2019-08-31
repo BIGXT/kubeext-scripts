@@ -19,7 +19,7 @@ updated: 2019-8-31
 
 - wuheng@otcaix.iscas.ac.cn
 - xuyuanjia2017@otcaix.iscas.ac.cn
-- sulingang17@otcaix.iscas.ac.cn
+- yanbowen18@otcaix.iscas.ac.cn
 
 
 ## 3. List
