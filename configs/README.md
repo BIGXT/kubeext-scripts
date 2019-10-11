@@ -47,4 +47,8 @@ systemctl start openvswitch
 systemctl enable openvswitch
 ```
 
-Next, please see project [syspods](../syspods) to complete installation.
+Next, please see project [pods](../pods) to complete installation.
+
+## 2. Refeences
+
+- https://mirrors.huaweicloud.com/centos-altarch
