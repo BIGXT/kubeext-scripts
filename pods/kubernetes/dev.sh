@@ -6,7 +6,7 @@
 ##
 ############################################
 
-version="v1.15.4"
+version="v1.16.2"
 podcidr="192.192.0.0/16"
 
 function setupCluster()
