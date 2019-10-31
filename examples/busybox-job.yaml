@@ -1,15 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: Job
 metadata:
   name: busybox
   namespace: default
   labels:
     app: busybox
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: busybox
   template:
     metadata:
       labels:
@@ -19,6 +15,7 @@ spec:
       - image: busybox
         command:
           - sleep
-          - "3600"
+          - "2"
         imagePullPolicy: IfNotPresent
         name: busybox
+      restartPolicy: Never
