@@ -1,11 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: busybox
   namespace: default
   labels:
     app: busybox
 spec:
+  serviceName: my-service
   replicas: 2
   selector:
     matchLabels:

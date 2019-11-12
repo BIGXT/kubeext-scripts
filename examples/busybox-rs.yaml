@@ -1,7 +1,7 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: busybox
+  name: busybox1
   namespace: default
   labels:
     app: busybox
@@ -21,4 +21,4 @@ spec:
           - sleep
           - "3600"
         imagePullPolicy: IfNotPresent
-        name: busybox
+        name: busybox1
