@@ -6,4 +6,8 @@ yum makecache
 yum -y install kubelet kubeadm kubectl
 sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 sudo yum install docker-ce
+systemctl start docker
+install bridge-utils
 
+brctl delbr  flannel.1
+brctl delbr cni0

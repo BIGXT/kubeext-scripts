@@ -7,12 +7,15 @@
 ############################################
 
 version="v1.16.2"
-podcidr="192.192.0.0/16"
+podcidr="10.244.0.0/16"
 
 function setupCluster()
 {
+  ifconfig cni0 down
+  ifconfig flannel.1 down
   swapoff -a
   res=$(cat /etc/sysctl.conf | grep swappiness)
+  sysctl net.bridge.bridge-nf-call-iptables=1
   if [[ -z $res ]]
   then
     echo "vm.swappiness = 0">> /etc/sysctl.conf 
@@ -29,6 +32,7 @@ function setupCluster()
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   iptables -P FORWARD ACCEPT
+  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
 
 #  kubectl taint nodes --all node-role.kubernetes.io/master-
 #  hostname=$(hostname)
