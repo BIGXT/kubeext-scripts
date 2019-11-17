@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: test-demo
+spec:
+  containers:
+  - name: heavy-write
+    image: registry.cn-hangzhou.aliyuncs.com/cloudplus-demo/write-heavy

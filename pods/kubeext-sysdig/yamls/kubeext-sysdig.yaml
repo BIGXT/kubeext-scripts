@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: sysdig-monitor
+spec:
+  template:
+    metadata:
+      labels:
+        app: sysdig-monitor
+    spec:
+      containers:
+      - name: sysdig-monitor
+        securityContext:
+          privileged: true
+        image: registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/kubeext-sysdig
+        ports:
+        - containerPort: 8080
+          hostPort: 8080
+        volumeMounts:
+        - name: docker-sock
+          mountPath: /host/var/run/docker.sock
+        - name: dev
+          mountPath: /host/dev
+        - name: proc
+          mountPath: /host/proc
+          readOnly: true
+        - name: boot
+          mountPath: /host/boot
+          readOnly: true
+        - name: modules
+          mountPath: /host/lib/modules
+          readOnly: true
+        - name: usr
+          mountPath: /host/usr
+          readOnly: true
+        - name: docker-home
+          mountPath: /var/lib/docker
+          readOnly: true
+      volumes:
+      - name: docker-sock
+        hostPath:
+          path: /var/run/docker.sock
+      - name: dev
+        hostPath:
+          path: /dev
+      - name: proc
+        hostPath:
+          path: /proc
+      - name: boot
+        hostPath:
+          path: /boot
+      - name: modules
+        hostPath:
+          path: /lib/modules
+      - name: usr
+        hostPath:
+          path: /usr
+      - name: docker-home
+        hostPath:
+          path: /var/lib/docker
