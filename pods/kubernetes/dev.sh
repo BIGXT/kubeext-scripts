@@ -16,6 +16,8 @@ function setupCluster()
   swapoff -a
   res=$(cat /etc/sysctl.conf | grep swappiness)
   sysctl net.bridge.bridge-nf-call-iptables=1
+  systemctl stop firewalld
+  systemctl disable firewalld
   if [[ -z $res ]]
   then
     echo "vm.swappiness = 0">> /etc/sysctl.conf 
@@ -33,8 +35,8 @@ function setupCluster()
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   iptables -P FORWARD ACCEPT
 
-#  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml
-#  kubectl taint nodes --all node-role.kubernetes.io/master-
+  kubectl apply -f flannel.yml
+  kubectl taint nodes --all node-role.kubernetes.io/master-
 #  hostname=$(hostname)
 #  kubectl label nodes $hostname registry=registry --overwrite
 #  kubectl label nodes $hostname k8s-app=fluentd --overwrite
