@@ -11,8 +11,8 @@ podcidr="10.244.0.0/16"
 
 function setupCluster()
 {
-  ifconfig cni0 down
-  ifconfig flannel.1 down
+#  ifconfig cni0 down
+#  ifconfig flannel.1 down
   swapoff -a
   res=$(cat /etc/sysctl.conf | grep swappiness)
   sysctl net.bridge.bridge-nf-call-iptables=1
@@ -35,8 +35,8 @@ function setupCluster()
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   iptables -P FORWARD ACCEPT
 
-  kubectl apply -f flannel.yml
-  kubectl taint nodes --all node-role.kubernetes.io/master-
+#  kubectl apply -f flannel.yml
+#  kubectl taint nodes --all node-role.kubernetes.io/master-
 #  hostname=$(hostname)
 #  kubectl label nodes $hostname registry=registry --overwrite
 #  kubectl label nodes $hostname k8s-app=fluentd --overwrite
