@@ -1,0 +1,8 @@
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/vm-terminal:v1.5.0-arm8
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/kubeext-ctl:v1.5.0-arm8
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/kubeext-let:v1.5.0-arm8
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/kubeext-base:v1.5.0-arm8
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/kubeext-dashboard:v1.5.0-arm8
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/kubeext-backend:v1.5.0-arm8
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/kubeext-controller-manager:v1.5.0-arm8
+registry.cn-hangzhou.aliyuncs.com/cloudplus-lab/docker-terminal:v1.5.0-arm8
