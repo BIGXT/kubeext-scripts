@@ -22,3 +22,7 @@ updated: 2020-1-13
 - xuyuanjia2017@otcaix.iscas.ac.cn
 - wuyuewen@otcaix.iscas.ac.cn
 
+
+## 3. Commands:
+
+- kubeadm alpha certs check-expiration
