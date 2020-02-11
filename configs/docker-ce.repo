@@ -2,28 +2,28 @@
 name=Docker CE Stable - $basearch
 baseurl=https://download.docker.com/linux/centos/7/$basearch/stable
 enabled=1
-gpgcheck=0
+gpgcheck=1
 gpgkey=https://download.docker.com/linux/centos/gpg
 
 [docker-ce-stable-debuginfo]
 name=Docker CE Stable - Debuginfo $basearch
 baseurl=https://download.docker.com/linux/centos/7/debug-$basearch/stable
 enabled=0
-gpgcheck=0
+gpgcheck=1
 gpgkey=https://download.docker.com/linux/centos/gpg
 
 [docker-ce-stable-source]
 name=Docker CE Stable - Sources
 baseurl=https://download.docker.com/linux/centos/7/source/stable
 enabled=0
-gpgcheck=0
+gpgcheck=1
 gpgkey=https://download.docker.com/linux/centos/gpg
 
 [docker-ce-edge]
 name=Docker CE Edge - $basearch
 baseurl=https://download.docker.com/linux/centos/7/$basearch/edge
 enabled=0
-gpgcheck=0
+gpgcheck=1
 gpgkey=https://download.docker.com/linux/centos/gpg
 
 [docker-ce-edge-debuginfo]
@@ -81,4 +81,3 @@ baseurl=https://download.docker.com/linux/centos/7/source/nightly
 enabled=0
 gpgcheck=1
 gpgkey=https://download.docker.com/linux/centos/gpg
-
