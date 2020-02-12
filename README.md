@@ -13,7 +13,7 @@ Note that you should first disable selinux and firewalld of your OS.
 | istio        | ServiceMesh | 1.2.3   | [Linux](https://istio.io/docs/setup/kubernetes/install/kubernetes/) |
 
 
-updated: 2020-1-13
+updated: 2020-2-13
 
 
 ## 2. Authors:

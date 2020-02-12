@@ -1,0 +1,128 @@
+#! /bin/bash
+###############################################
+##
+##  Copyright (2019, ) Institute of Software
+##      Chinese Academy of Sciences
+##          wuheng@otcaixiscas.ac.cn
+##         wuyuewen@otcaix.iscas.ac.cn
+##              2019-9-24
+##
+###############################################
+
+function init-env()
+{
+  swapoff -a
+ 
+  \cp /kubeos/config /etc/selinux/config
+ 
+  systemctl stop firewalld
+  systemctl disable firewalld
+
+  res=$(cat /etc/sysctl.conf | grep swappiness)
+  sysctl net.bridge.bridge-nf-call-iptables=1
+  if [[ -z $res ]]
+  then
+    echo "vm.swappiness = 0">> /etc/sysctl.conf
+  fi
+  echo "1" > /proc/sys/net/bridge/bridge-nf-call-iptables
+  echo "1" > /proc/sys/net/ipv4/ip_forward >/dev/null
+
+  systemctl enable kubelet
+  systemctl start kubelet
+}
+
+function init-master()
+{
+  yum install -y docker-ce-19.03.5 kubeadm-1.17.1 kubectl-1.17.1 kubelet-1.17.1
+  systemctl enable docker
+  systemctl start  docker
+}
+
+function init-node()
+{
+  yum install -y docker-ce-19.03.5 kubeadm-1.17.1 kubectl-1.17.1 kubelet-1.17.1
+  systemctl enable docker
+  systemctl start  docker
+}
+
+function setup-master()
+{
+
+  ## init
+  init-env
+  
+  ## Kubernetes
+  kubeadm init --config /etc/kubeos/kubeadm.yaml 
+ 
+  rm -rf $HOME/.kube
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  iptables -P FORWARD ACCEPT
+
+  ## Calico
+  for img in `cat /kubeos/calico.yaml  | grep image |awk -F"image:" '{print$2}'`
+  do
+    echo "docker pull "$img
+    docker pull $img
+  done
+
+  podcidr=$(kubeadm config view | grep podSubnet | awk -F": " '{print$2}')
+  rm -rf /tmp/calico.yaml
+  cp /kubeos/calico.yaml /tmp/calico.yaml
+  sed -i "s:POD_CIDR:${podcidr}:g" /tmp/calico.yaml
+  kubectl create -f /tmp/calico.yaml
+  rm -rf /tmp/calico.yaml
+
+  ## Plugins
+}
+
+function setup-node()
+{
+  ## init
+  init-env
+
+  token=$(kubeadm token list | grep kubeadm | grep init | awk '{print $1}')
+  hash=$(openssl x509 -in /etc/kubernetes/pki/ca.crt -noout -pubkey | openssl rsa -pubin -outform DER 2>/dev/null | sha256sum | cut -d' ' -f1)
+  master=$(cat /root/.kube/config | grep server | awk -F"https://" '{print$2}')
+  kubeadm join $master --token $token --discovery-token-ca-cert-hash sha256:$hash
+}
+
+function cmddesc()
+{
+  echo -e "Welcome to kubevirt-ctl, the install plugin for Kubernetes."
+  echo -e "kubevirt-ctl: missing command name (use --help for help)\n"
+}
+
+
+function help()
+{
+  cmddesc
+  echo -e "Commands:"
+  echo -e "  init-master   :\t(Init) : Install softwares for Kubernetes Master"
+  echo -e "  init-node     :\t(Init) : Install softwares for Kubernetes Node"
+  echo -e "  setup-master  :\t(Setup): Install Kubernetes Master"
+  echo -e "  setup-node    :\t(Setup): Install Kubernetes Node"
+}
+
+
+case $1 in
+  "init-master")
+    init-master $*
+    ;;
+  "init-node")
+    init-node $*
+    ;;
+  "setup-master")
+    setup-master $*
+    ;;
+  "setup-node")
+    setup-node $*
+    ;;
+  "--help")
+    help
+    ;;
+  *)
+  help
+  ;;
+esac
