@@ -9,7 +9,7 @@
 ##
 ###############################################
 
-version="v1.17.1"
+version="1.17.3"
 podcidr="10.244.0.0/16"
 
 function init-env()
@@ -36,14 +36,14 @@ function init-env()
 
 function init-master()
 {
-  yum install -y docker-ce-19.03.5 kubeadm-1.17.1 kubectl-1.17.1 kubelet-1.17.1
+  yum install -y docker-ce-19.03.5 kubeadm-$version kubectl-$version kubelet-$version
   systemctl enable docker
   systemctl start  docker
 }
 
 function init-node()
 {
-  yum install -y docker-ce-19.03.5 kubeadm-1.17.1 kubectl-1.17.1 kubelet-1.17.1
+  yum install -y docker-ce-19.03.5 kubeadm-$version kubectl-$version kubelet-$version
   systemctl enable docker
   systemctl start  docker
 }
@@ -55,8 +55,8 @@ function setup-master()
   init-env
   
   ## Kubernetes
-  echo "kubeadm init --kubernetes-version=$version --pod-network-cidr=$podcidr --token-ttl=0"
-  kubeadm init --kubernetes-version=$version --pod-network-cidr=$podcidr --token-ttl=0 --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
+  echo "kubeadm init --kubernetes-version=v$version --pod-network-cidr=$podcidr --token-ttl=0"
+  kubeadm init --kubernetes-version=v$version --pod-network-cidr=$podcidr --token-ttl=0 --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
  
   rm -rf $HOME/.kube
   mkdir -p $HOME/.kube
