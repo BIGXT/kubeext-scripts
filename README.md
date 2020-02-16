@@ -16,16 +16,20 @@ Note that you should first disable selinux and firewalld of your OS.
 updated: 2020-2-13
 
 
-## 2. Authors:
+## 2. Authors
 
 - wuheng@otcaix.iscas.ac.cn
 - xuyuanjia2017@otcaix.iscas.ac.cn
 - wuyuewen@otcaix.iscas.ac.cn
 
+## 3. Reference
 
-## 3. Commands:
+- https://etcd.io/docs/v3.4.0/op-guide/authentication/
+
+## 4. Commands
 
 - kubeadm alpha certs check-expiration
 - ETCDCTL_API=3 etcdctl --endpoints=https://localhost:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key member list
 - ETCDCTL_API=3 etcdctl --endpoints=https://localhost:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key user list
 cloudplus
+
