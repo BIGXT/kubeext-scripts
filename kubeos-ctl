@@ -36,14 +36,14 @@ function init-env()
 
 function init-master()
 {
-  yum install -y docker-ce-19.03.5 kubeadm-$version kubectl-$version kubelet-$version
+  yum install -y docker-ce-19.03.5 docker-ce-cli-19.03.5 kubeadm-$version kubectl-$version kubelet-$version
   systemctl enable docker
   systemctl start  docker
 }
 
 function init-node()
 {
-  yum install -y docker-ce-19.03.5 kubeadm-$version kubectl-$version kubelet-$version
+  yum install -y docker-ce-19.03.5 docker-ce-cli-19.03.5 kubeadm-$version kubectl-$version kubelet-$version
   systemctl enable docker
   systemctl start  docker
 }
