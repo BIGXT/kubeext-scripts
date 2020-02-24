@@ -1,18 +1,17 @@
 apiVersion: indeed.com/v1alpha1
 kind: RabbitMQCustomResource
 metadata:
-  name: myrabbitmq
-  namespace: rabbitmqs
+  name: rabbitmq-instance
 spec:
-  rabbitMQImage: "rabbitmq:3.7.8-alpine"
+  rabbitMQImage: "rabbitmq:3.8.2-management"
   initContainerImage: "busybox:latest"
   createLoadBalancer: true
-  replicas: 3
+  replicas: 1
   compute:
-    cpuRequest: "300m"
-    memory: "512Mi"
+    cpuRequest: "1300m"
+    memory: "2Gi"
   storage:
-    storageClassName: rook-ceph-block
+    storageClassName: local-storage
     limit: "1Gi"
   clusterSpec:
     highWatermarkFraction: 0.4
@@ -42,9 +41,9 @@ spec:
             - address: "myrabbitmq-svc" # shovel messages from this cluster to itself
               vhost: "/"
           secretName: "mynewadmin-myrabbitmq-user-secret" # user created below
-          secretNamespace: "rabbitmqs"
+          secretNamespace: "default"
     users:
-      - username: "mynewadmin"
+      - username: "admin"
         tags:
           - "administrator"
         vhosts:
@@ -53,3 +52,45 @@ spec:
               configure: ".*"
               write: ".*"
               read: ".*"
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-storage
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-storage
+  local: 
+    path: /data/vol1  
+  nodeAffinity: 
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - ali3
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: rabbitmq-storage-rabbitmq-instance-0
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: local-storage

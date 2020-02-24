@@ -5007,7 +5007,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: strimzi-cluster-operator
+  name: kafka-operator
   labels:
     app: strimzi
 spec:
@@ -5024,8 +5024,8 @@ spec:
     spec:
       serviceAccountName: strimzi-cluster-operator
       containers:
-      - name: strimzi-cluster-operator
-        image: strimzi/operator:0.16.2
+      - name: kafka-operator
+        image: registry.cn-hangzhou.aliyuncs.com/middleware-operator/kafka:0.16.2
         args:
         - /opt/strimzi/bin/cluster_operator_run.sh
         env:
