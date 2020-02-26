@@ -20,6 +20,7 @@ cp linux-amd64/helm /usr/local/bin/
 
 # 利用阿里云的镜像来配置 Helm
 helm init --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.16.3  --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
+
 kubectl create serviceaccount --namespace kube-system tiller  
 
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller 
