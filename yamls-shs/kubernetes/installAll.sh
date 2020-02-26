@@ -1,3 +1,4 @@
+yum install centos-release
 rm -rf /etc/yum.repos.d
 mkdir /etc/yum.repos.d
 cp ../../yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
