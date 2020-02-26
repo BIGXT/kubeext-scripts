@@ -2,7 +2,7 @@
 ##
 ## Copyright (2019, ) Institute of Software
 ##      Chinese Academy of Sciences
-##       wuheng@otcaix.iscas.ac.cn
+##       {xuyuanjia2017,wuheng}@otcaix.iscas.ac.cn
 ##
 ############################################
 
@@ -18,6 +18,7 @@ function setupCluster()
   sysctl net.bridge.bridge-nf-call-iptables=1
   systemctl stop firewalld
   systemctl disable firewalld
+  systemctl enable docker.service
   if [[ -z $res ]]
   then
     echo "vm.swappiness = 0">> /etc/sysctl.conf 
@@ -25,6 +26,7 @@ function setupCluster()
   echo "1" > /proc/sys/net/bridge/bridge-nf-call-iptables
   echo "1" > /proc/sys/net/ipv4/ip_forward >/dev/null
   rm -rf $HOME/.kube
+  rm -rf /etc/kubernetes
   systemctl enable kubelet
   systemctl start kubelet
   
