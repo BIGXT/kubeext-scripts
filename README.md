@@ -54,9 +54,13 @@ updated: 2020-2-13
 We call it ARE-MVC. It is configuration based, analytically driven and Kubernetes oriented system.
 We hope it can support various scenario, such as DevOps, Edge and PaaS
 
-![avatar](images/arch.png)
+![avatar](https://github.com/kubesys/kubeOS/blob/master/imgs/arch.png)
 
-Demo: http://39.106.124.113:9527, admin/111111
+It includes three projects:
+
+- [kubeOS](https://github.com/kubesys/kubeOS): scripts
+- [kubeext-system](https://github.com/kubesys/kubeext-system): customized Kubernetes resources
+- [kubeext-dashboard](https://github.com/kubesys/kubeext-dashboard): Web UI
 
 ## 6. Commands
 
