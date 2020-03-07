@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  labels:
+    app: devops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops
+  template:
+    metadata:
+      name: postgres
+      labels:
+        app: devops
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:10.12-alpine
+        ports:
+          - containerPort: 5432
+        env:
+          - name: POSTGRES_USER
+            value: sonar
+          - name: POSTGRES_PASSWORD
+            value: sonar
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-data
+      volumes:
+      - name: postgres-data
+        hostPath:
+          path: /data/devops/sonar
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  labels:
+    app: devops
+spec:
+  type: NodePort
+  ports:
+  - port: 5432
+  selector:
+    app: devops
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sonar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops
+  template:
+    metadata:
+      labels:
+        app: devops
+    spec:
+      containers:
+      - name: sonar
+        image: sonarqube:8.2-community
+        ports:
+        - containerPort: 9000
+        env:
+        - name: SONARQUBE_JDBC_USERNAME
+          value: sonar
+        - name: SONARQUBE_JDBC_PASSWORD
+          value: sonar
+        - name: SONARQUBE_JDBC_URL
+          value: jdbc:postgresql://postgres:5432/sonar
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sonar
+spec:
+  type: NodePort
+  ports:
+  - port: 9000
+    nodePort: 30090
+  selector:
+    app: devops
