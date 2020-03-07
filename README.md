@@ -15,16 +15,16 @@ Note that you should first disable selinux and firewalld of your OS.
 
 updated: 2020-2-13
 
+# 2. Demo Environment
 
-## 2. Authors
+Using the account admin/111111 to log in the [demo environment](http://39.106.124.113:9537/).
+
+## 3. Authors
 
 - wuheng@otcaix.iscas.ac.cn
 - xuyuanjia2017@otcaix.iscas.ac.cn
 - wuyuewen@otcaix.iscas.ac.cn
 
-## 3. Reference
-
-- https://etcd.io/docs/v3.4.0/op-guide/authentication/
 
 ## 4. Projects
 
