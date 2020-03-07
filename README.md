@@ -26,7 +26,29 @@ updated: 2020-2-13
 
 - https://etcd.io/docs/v3.4.0/op-guide/authentication/
 
-## 4. Commands
+## 4. Projects
+
+- CMP (Baidu, Aliyun, Tencent, JD, Ucloud, Amazon, Azure, Google)
+  - Compute: VirtualMachine, Container
+  - Network: CDN
+  - Database
+  - Storage
+- DevOps
+  - 代码开发 (Eclipse Che)：https://github.com/eclipse/che
+  - 代码仓库（Gitlab）：https://github.com/gitlabhq/gitlabhq
+  - 编译部署（tektoncd）：https://github.com/tektoncd
+  - 在线文档 (ShowDoc): https://github.com/kphcdr/godoc
+  - 过程管里（projectManage）：https://gitee.com/vilson/vue-projectManage
+- service-oriented PaaS
+  - 制品管理（helm）：https://github.com/helm/helm
+  - 服务网格（istio）：https://github.com/istio/istio
+  - 服务追踪（zipkin）：https://github.com/openzipkin/zipkin
+  - 服务注册（eureka）：https://github.com/Netflix/eureka
+  - 服务网关（zuul）：https://github.com/Netflix/zuul
+  - 服务容错（hystrix）：https://github.com/Netflix/Hystrix
+  - 服务配置（Apollo）：https://github.com/ctripcorp/apollo
+
+## 5. Commands
 
 - kubeadm alpha certs check-expiration
 - ETCDCTL_API=3 etcdctl --endpoints=https://localhost:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key member list
