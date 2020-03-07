@@ -28,18 +28,18 @@ updated: 2020-2-13
 
 ## 4. Projects
 
-- CMP (Baidu, Aliyun, Tencent, JD, Ucloud, Amazon, Azure, Google)
+- [CMP](cmp-yamls) (Cross-cloud management platform) (Baidu, Aliyun, Tencent, JD, Ucloud, Amazon, Azure, Google)
   - Compute: VirtualMachine, Container
   - Network: CDN
   - Database
   - Storage
-- DevOps
+- [DevOps](devops-yamls)
   - 代码开发 (Eclipse Che)：https://github.com/eclipse/che
   - 代码仓库（Gitlab）：https://github.com/gitlabhq/gitlabhq
   - 编译部署（tektoncd）：https://github.com/tektoncd
   - 在线文档 (ShowDoc): https://github.com/kphcdr/godoc
   - 过程管里（projectManage）：https://gitee.com/vilson/vue-projectManage
-- service-oriented PaaS
+- [service-oriented PaaS](mpaas-yamls)
   - 制品管理（helm）：https://github.com/helm/helm
   - 服务网格（istio）：https://github.com/istio/istio
   - 服务追踪（zipkin）：https://github.com/openzipkin/zipkin
@@ -48,7 +48,17 @@ updated: 2020-2-13
   - 服务容错（hystrix）：https://github.com/Netflix/Hystrix
   - 服务配置（Apollo）：https://github.com/ctripcorp/apollo
 
-## 5. Commands
+
+## 5. Architecture and Demo
+
+We call it ARE-MVC. It is configuration based, analytically driven and Kubernetes oriented system.
+We hope it can support various scenario, such as DevOps, Edge and PaaS
+
+![avatar](images/arch.png)
+
+Demo: http://39.106.124.113:9527, admin/111111
+
+## 6. Commands
 
 - kubeadm alpha certs check-expiration
 - ETCDCTL_API=3 etcdctl --endpoints=https://localhost:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/healthcheck-client.crt --key=/etc/kubernetes/pki/etcd/healthcheck-client.key member list
