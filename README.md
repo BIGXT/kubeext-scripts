@@ -15,16 +15,16 @@ Note that you should first disable selinux and firewalld of your OS.
 
 updated: 2020-2-13
 
+# 2. Demo Environment
 
-## 2. Authors
+Using the account admin/111111 to log in the [demo environment](http://39.106.124.113:9537/).
+
+## 3. Authors
 
 - wuheng@otcaix.iscas.ac.cn
 - xuyuanjia2017@otcaix.iscas.ac.cn
 - wuyuewen@otcaix.iscas.ac.cn
 
-## 3. Reference
-
-- https://etcd.io/docs/v3.4.0/op-guide/authentication/
 
 ## 4. Projects
 
@@ -54,9 +54,13 @@ updated: 2020-2-13
 We call it ARE-MVC. It is configuration based, analytically driven and Kubernetes oriented system.
 We hope it can support various scenario, such as DevOps, Edge and PaaS
 
-![avatar](images/arch.png)
+![avatar](https://github.com/kubesys/kubeOS/blob/master/imgs/arch.png)
 
-Demo: http://39.106.124.113:9527, admin/111111
+It includes three projects:
+
+- [kubeOS](https://github.com/kubesys/kubeOS): scripts
+- [kubeext-system](https://github.com/kubesys/kubeext-system): customized Kubernetes resources
+- [kubeext-dashboard](https://github.com/kubesys/kubeext-dashboard): Web UI
 
 ## 6. Commands
 
