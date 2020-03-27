@@ -1,6 +1,18 @@
 systemctl stop docker
-yum -y remove docker-ce
-rm -rf /var/lib/docker
+yum remove docker \
+            docker-client \
+            docker-client-latest \
+            docker-common \
+            docker-latest \
+            docker-latest-logrotate \
+            docker-logrotate \
+            docker-selinux \
+            docker-engine-selinux \
+            docker-engine \
+            docker \
+            docker-ce \
+            docker-ee
+# rm -rf /var/lib/docker
 yum -y remove kubelet kubeadm kubectl
 ifconfig cni0 down
 ifconfig flannel.1 down
