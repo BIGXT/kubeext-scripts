@@ -1,0 +1,48 @@
+credential:
+  access_key_id: xxx
+  access_key_secret: xxx
+  region_id: cn-hangzhou
+
+metrics:
+  acs_ecs_dashboard:
+  - name: CPUUtilization
+    period: 60
+  - name: DiskReadBPS
+    period: 60
+  - name: DiskReadIOPS
+    period: 60
+  - name: diskusage_utilization
+    period: 15
+  - name: DiskWriteBPS
+    period: 60
+  - name: DiskWriteIOPS
+    period: 60
+  - name: fs_inodeutilization
+    period: 15
+  - name: InternetIn
+    period: 60
+  - name: InternetOut
+    period: 60
+  - name: IntranetIn
+    period: 60
+  - name: IntranetOut
+    period: 60
+  - name: load_15m
+    period: 15
+  - name: load_1m
+    period: 15
+  - name: load_5m
+    period: 15
+  - name: memory_actualusedspace
+    period: 15
+  - name: memory_totalspace
+    period: 15
+  - name: memory_usedspace
+    period: 15
+  - name: memory_usedutilization
+    period: 15
+  - name: net_tcpconnection
+    period: 15
+
+info_metrics:
+  - ecs
