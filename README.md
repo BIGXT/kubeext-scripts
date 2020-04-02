@@ -41,8 +41,8 @@ Using the account admin/111111 to log in the [demo environment](http://39.106.12
     - Database
     - Storage
  - [Frontend](frontend-yamls)
-  - [Dispatcher](https://github.com/kubesys/kubeext-system)
-  - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
+    - [Dispatcher](https://github.com/kubesys/kubeext-system)
+    - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
 
 
 ## 5. Architecture and Demo
