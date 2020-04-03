@@ -44,6 +44,8 @@ Using the account admin/admin to log in the [demo environment](http://39.106.124
     - Network: CDN
     - Database
     - Storage
+ - [Debug tools]
+    - Validator : [kube-hunter](https://github.com/aquasecurity/kube-hunter) 
  - [Frontend](frontend-yamls)
     - [Dispatcher](https://github.com/kubesys/kubeext-system)
     - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
