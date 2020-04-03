@@ -35,10 +35,12 @@ function setupCluster()
   iptables -P FORWARD ACCEPT
 
   wget -P /usr/bin http://39.106.124.113/edgecloud/corecloud/helm
-  helm repo update
   #curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
   helm repo add bitnami https://charts.bitnami.com/bitnami
   helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
+  helm repo add harbor https://helm.goharbor.io
+  helm repo update
+  helm install habor harbor/harbor
 
   kubectl apply -f yamls/
 }
