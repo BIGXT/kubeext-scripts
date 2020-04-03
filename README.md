@@ -18,7 +18,7 @@ updated: 2020-4-2
 
 # 2. Demo Environment
 
-Using the account admin/111111 to log in the [demo environment](http://39.106.124.113:9537/).
+Using the account admin/admin to log in the [demo environment](http://39.106.124.113:9537/).
 
 ## 3. Authors
 
