@@ -31,10 +31,14 @@ Using the account admin/111111 to log in the [demo environment](http://39.106.12
 
 - Backend
   - [Core](core-yamls)(Kubernetes):
-    - Cluster manager: Kubernetes
-    - Network manager: Calico
+    - Cluster manager: [Kubernetes](https://github.com/kubernetes/kubernetes)
+    - Network manager: [Calico](https://github.com/projectcalico/calico)
+    - Image repository: [habor](https://github.com/goharbor/harbor)
     - Image analyzer: [Diving](https://github.com/vicanso/diving)
     - Basic monitor: [Prometheus](https://github.com/prometheus/prometheus)
+    - Event notifier: [kube-eventer](https://github.com/AliyunContainerService/kube-eventer)
+    - Package manager: [helm](https://github.com/helm/helm)
+    - Federated authenticator: [dex](https://github.com/dexidp/dex)
   - [CMP](cmp-yamls)(Cross-cloud management platform) (Baidu, Aliyun, Tencent, JD, Ucloud, Amazon, Azure, Google):
     - Compute: VirtualMachine, Container
     - Network: CDN
@@ -43,7 +47,6 @@ Using the account admin/111111 to log in the [demo environment](http://39.106.12
  - [Frontend](frontend-yamls)
     - [Dispatcher](https://github.com/kubesys/kubeext-system)
     - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
-
 
 ## 5. Architecture and Demo
 
