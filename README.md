@@ -35,7 +35,7 @@ Using the account admin/admin to log in the [demo environment](http://39.106.124
     - Network manager: [Calico](https://github.com/projectcalico/calico)
     - Basic monitor: [Prometheus](https://github.com/prometheus/prometheus)
     - Package manager: [helm](https://github.com/helm/helm)
-    - Federated authenticator: [dex](https://github.com/dexidp/dex)
+    - ~~Federated authenticator: [dex](https://github.com/dexidp/dex)~~
   - [Frontend](frontend-yamls)
     - [Dispatcher](https://github.com/kubesys/kubeext-system)
     - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
