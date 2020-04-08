@@ -33,22 +33,25 @@ Using the account admin/admin to log in the [demo environment](http://39.106.124
   - [Core](core-yamls)(Kubernetes):
     - Cluster manager: [Kubernetes](https://github.com/kubernetes/kubernetes)
     - Network manager: [Calico](https://github.com/projectcalico/calico)
-    - Image repository: [trow](https://github.com/ContainerSolutions/trow) or [habor](https://github.com/goharbor/harbor)
-    - Image analyzer: [Diving](https://github.com/vicanso/diving)
     - Basic monitor: [Prometheus](https://github.com/prometheus/prometheus)
-    - Event notifier: [kube-eventer](https://github.com/AliyunContainerService/kube-eventer)
     - Package manager: [helm](https://github.com/helm/helm)
     - Federated authenticator: [dex](https://github.com/dexidp/dex)
+  - [Frontend](frontend-yamls)
+    - [Dispatcher](https://github.com/kubesys/kubeext-system)
+    - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
   - [CMP](cmp-yamls)(Cross-cloud management platform) (Baidu, Aliyun, Tencent, JD, Ucloud, Amazon, Azure, Google):
     - Compute: VirtualMachine, Container
     - Network: CDN
     - Database
     - Storage
+ - [Monitor tools]
+    - Event notifier: [kube-eventer](https://github.com/AliyunContainerService/kube-eventer)
+ - [Image tools]
+    - Image repository: [trow](https://github.com/ContainerSolutions/trow) or [habor](https://github.com/goharbor/harbor)
+    - Image analyzer: [Diving](https://github.com/vicanso/diving)
  - [Debug tools]
     - Validator : [kube-hunter](https://github.com/aquasecurity/kube-hunter) 
- - [Frontend](frontend-yamls)
-    - [Dispatcher](https://github.com/kubesys/kubeext-system)
-    - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
+ 
 
 ## 5. Architecture and Demo
 
