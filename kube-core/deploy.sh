@@ -6,9 +6,9 @@
 ##
 ############################################
 
-version="v1.18.0"
+version="v1.17.4"
 
-function setupCluster()
+function setupKube()
 {
   swapoff -a
   res=$(cat /etc/sysctl.conf | grep swappiness)
@@ -34,15 +34,18 @@ function setupCluster()
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   iptables -P FORWARD ACCEPT
 
+  kubectl apply -f yamls/
+}
+
+function setupHelm()
+{
   wget -P /usr/bin http://39.106.124.113/edgecloud/corecloud/helm
-  #curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+  chmod 777 /usr/bin/helm
   helm repo add bitnami https://charts.bitnami.com/bitnami
   helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
   helm repo add harbor https://helm.goharbor.io
   helm repo update
-  helm install habor harbor/harbor
-
-  kubectl apply -f yamls/
 }
 
-setupCluster
+setupKube
+setupHelm
