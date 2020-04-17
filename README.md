@@ -32,9 +32,10 @@ Using the account admin/admin to log in the [demo environment](http://39.106.124
 - Backend
   - [Core](kube-core)(Kubernetes):
     - Cluster manager: [Kubernetes](https://github.com/kubernetes/kubernetes)
-    - Network manager: [Calico](https://github.com/projectcalico/calico)
-    - Basic monitor: [Prometheus](https://github.com/prometheus/prometheus)
+    - Network plugin : [Calico](https://github.com/projectcalico/calico)
+    - Cluster monitor: [Prometheus](https://github.com/prometheus/prometheus)
     - Package manager: [helm](https://github.com/helm/helm)
+    - Service mesh:    [istio](https://github.com/istio/istio)
   - [Frontend](frontend-yamls)
     - [Dispatcher](https://github.com/kubesys/kubeext-system)
     - [Dashboard](https://github.com/kubesys/kubeext-dashboard)
