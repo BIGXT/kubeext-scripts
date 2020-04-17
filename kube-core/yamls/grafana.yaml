@@ -44,7 +44,22 @@ spec:
             path: /login
             port: 3000
         volumeMounts:
+           - name: sc-dashboards-volume
+             mountPath: /etc/grafana/provisioning/dashboards
+           - name: sc-datasources-volume
+             mountPath: /etc/grafana/provisioning/datasources
+           - name: sc-dashboards-provider
+             mountPath: /etc/grafana/provisioning/dashboardsJson
       volumes:
+      - name: sc-dashboards-provider
+        hostPath:
+          path: /var/lib/grafana/dashboards/
+      - name: sc-datasources-volume
+        configMap:
+          name: grafana-datasource
+      - name: sc-dashboards-volume
+        configMap:
+          name: grafana-dashboard
 ---
 apiVersion: v1
 kind: Service
