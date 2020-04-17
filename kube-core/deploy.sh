@@ -41,17 +41,36 @@ function setupKube()
 
 function setupHelm()
 {
+  kubectl taint nodes --all node-role.kubernetes.io/master-
+
   if [[ ! -f "/usr/bin/helm" ]]
   then
-    wget -P /usr/bin http://39.106.124.113/edgecloud/corecloud/helm
+    wget -P /usr/bin/ http://39.106.124.113/serverless/kubecore/helm
     chmod 777 /usr/bin/helm
   fi
 
+  chmod 777 /usr/bin/helm
+  
   helm repo add bitnami https://charts.bitnami.com/bitnami
   helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
   helm repo add harbor https://helm.goharbor.io
   helm repo update
 }
 
+setupIstio()
+{
+  ready=$(kubectl get po -n kube-system | grep coredns | grep Running)
+  while [[ -z $ready ]]
+  do
+    sleep 3
+  done
+   
+  helm template istio --namespace kube-system \
+    --values istio/values-istio-demo.yaml \
+    --set global.controlPlaneSecurityEnabled=true \
+    --set global.mtls.enabled=true | kubectl apply -f -
+}
+
 setupKube
 setupHelm
+setupIstio

@@ -9,8 +9,8 @@ Note that you should first disable selinux and firewalld of your OS.
 | KVM/libvirt  | OS-based virtualization  | 2.1.2/4.5.0   | [Linux](https://www.qemu.org/download/#linux) |
 | openvswitch  | Network virtualization | 2.11    | [redhat/CentOS](http://docs.openvswitch.org/en/latest/intro/install/distributions/#red-hat), [openSUSE/SUSE](http://docs.openvswitch.org/en/latest/intro/install/distributions/#opensuse), [debian/ubuntu](http://docs.openvswitch.org/en/latest/intro/install/distributions/#debian) |
 | Calico      | Network solution        | 3.13  | [Linux](https://docs.projectcalico.org/v3.9/getting-started/kubernetes/) |
-| Kubernetes   | Virtual compute resource pool  | 1.18.0  | [Linux](https://docs.kubernetes.io/) |
-| istio        | ServiceMesh | 1.2.3   | [Linux](https://istio.io/docs/setup/kubernetes/install/kubernetes/) |
+| Kubernetes   | Virtual compute resource pool  | 1.17.4  | [Linux](https://docs.kubernetes.io/) |
+| istio        | ServiceMesh | 1.5.1   | [Linux](https://istio.io/docs/setup/kubernetes/install/kubernetes/) |
 
 
 updated: 2020-4-2
