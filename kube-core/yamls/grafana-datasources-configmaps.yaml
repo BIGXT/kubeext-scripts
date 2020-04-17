@@ -12,5 +12,5 @@ data:
     datasources:
     - name: Prometheus
       type: prometheus
-      url: http://prometheus-service.kube-system.svc.cluster.local:31001
-      access: direct
+      url: http://prometheus-service.kube-system:9090
+      access: proxy
