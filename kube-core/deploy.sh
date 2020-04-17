@@ -27,7 +27,7 @@ function setupKube()
   systemctl enable kubelet
   systemctl start kubelet
   
-  echo "kubeadm init --kubernetes-version=$version --imageRepository=registry.cn-hangzhou.aliyuncs.com/google_containers --token-ttl=0"
+  echo "kubeadm init --kubernetes-version=$version --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers --token-ttl=0"
   kubeadm init --kubernetes-version=$version --imageRepository=registry.cn-hangzhou.aliyuncs.com/google_containers --token-ttl=0 
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
@@ -39,8 +39,12 @@ function setupKube()
 
 function setupHelm()
 {
-  wget -P /usr/bin http://39.106.124.113/edgecloud/corecloud/helm
-  chmod 777 /usr/bin/helm
+  if [[ ! -f "/usr/bin/helm" ]]
+  then
+    wget -P /usr/bin http://39.106.124.113/edgecloud/corecloud/helm
+    chmod 777 /usr/bin/helm
+  fi
+
   helm repo add bitnami https://charts.bitnami.com/bitnami
   helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
   helm repo add harbor https://helm.goharbor.io
