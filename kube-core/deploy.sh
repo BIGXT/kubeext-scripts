@@ -28,7 +28,7 @@ function setupKube()
   systemctl start kubelet
   
   echo "kubeadm init --kubernetes-version=$version --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers --token-ttl=0"
-  kubeadm init --kubernetes-version=$version --imageRepository=registry.cn-hangzhou.aliyuncs.com/google_containers --token-ttl=0 
+  kubeadm init --kubernetes-version=$version --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers --token-ttl=0 
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
