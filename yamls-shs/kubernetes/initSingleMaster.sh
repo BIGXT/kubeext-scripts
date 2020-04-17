@@ -6,7 +6,7 @@
 ##
 ############################################
 
-version="v1.17.3"
+version="v1.17.4"
 podcidr="10.244.0.0/16"
 
 function setupCluster()
@@ -38,7 +38,7 @@ function setupCluster()
   iptables -P FORWARD ACCEPT
 
 #  kubectl apply -f flannel.yml
-#  kubectl taint nodes --all node-role.kubernetes.io/master-
+  kubectl taint nodes --all node-role.kubernetes.io/master-
 #  hostname=$(hostname)
 #  kubectl label nodes $hostname registry=registry --overwrite
 #  kubectl label nodes $hostname k8s-app=fluentd --overwrite

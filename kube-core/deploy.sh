@@ -34,6 +34,8 @@ function setupKube()
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   iptables -P FORWARD ACCEPT
 
+  mkdir -p /var/lib/grafana/dashboards/
+  \cp jsons/* /var/lib/grafana/dashboards/
   kubectl apply -f yamls/
 }
 

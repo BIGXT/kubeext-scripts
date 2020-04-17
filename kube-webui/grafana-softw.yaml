@@ -19,8 +19,11 @@ spec:
     spec:
       nodeSelector:
         node-role.kubernetes.io/master: ""
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
       containers:
-      - image: grafana/grafana:5.4.3
+      - image: grafana/grafana:6.7.2
         name: grafana-core
         imagePullPolicy: IfNotPresent
         resources:

@@ -9,7 +9,7 @@
 ##
 ###############################################
 
-version="1.17.3"
+version="1.17.4"
 podcidr="10.244.0.0/16"
 
 function init-env()
@@ -51,51 +51,10 @@ function init-node()
 function setup-master()
 {
 
-  ## init
-  init-env
-  
-  ## Kubernetes
-  echo "kubeadm init --kubernetes-version=v$version --pod-network-cidr=$podcidr --token-ttl=0"
-  kubeadm init --kubernetes-version=v$version --pod-network-cidr=$podcidr --token-ttl=0 --image-repository=registry.cn-hangzhou.aliyuncs.com/google_containers
- 
-  rm -rf $HOME/.kube
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-  iptables -P FORWARD ACCEPT
-
-  ## Calico
-  for img in `cat /kubeos/calico.yaml  | grep image |awk -F"image:" '{print$2}'`
-  do
-    echo "docker pull "$img
-    docker pull $img
-  done
-
-  podcidr=$(kubeadm config view | grep podSubnet | awk -F": " '{print$2}')
-  rm -rf /tmp/calico.yaml
-  cp /kubeos/calico.yaml /tmp/calico.yaml
-  sed -i "s:POD_CIDR:${podcidr}:g" /tmp/calico.yaml
-  kubectl create -f /tmp/calico.yaml
-  rm -rf /tmp/calico.yaml
-
-  ## Plugins
-
-  for plugin in `ls /kubeos/ | grep -v calico.yaml`
-  do
-    kubectl apply -f /kubeos/$plugin
-  done
-  
 }
 
 function setup-node()
 {
-  ## init
-  init-env
-
-  token=$(kubeadm token list | grep kubeadm | grep init | awk '{print $1}')
-  hash=$(openssl x509 -in /etc/kubernetes/pki/ca.crt -noout -pubkey | openssl rsa -pubin -outform DER 2>/dev/null | sha256sum | cut -d' ' -f1)
-  master=$(cat /root/.kube/config | grep server | awk -F"https://" '{print$2}')
-  kubeadm join $master --token $token --discovery-token-ca-cert-hash sha256:$hash
 }
 
 function cmddesc()
