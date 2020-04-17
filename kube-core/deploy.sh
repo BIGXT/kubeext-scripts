@@ -73,4 +73,4 @@ setupIstio()
 
 setupKube
 setupHelm
-setupIstio
+#setupIstio
