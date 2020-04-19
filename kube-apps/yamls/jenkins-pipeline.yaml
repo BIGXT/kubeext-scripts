@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  namespace: kube-apps
+  labels:
+    app: kube-apps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kube-apps
+  template:
+    metadata:
+      labels:
+        app: kube-apps
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts-centos
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: jenkins-data
+          mountPath: /var/jenkins_home
+      volumes:
+      - name: jenkins-data
+        hostPath:
+          path: /cloudplus/jenkins
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+  namespace: kube-apps
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 31100
+  selector:
+    app: kube-apps
