@@ -50,7 +50,7 @@ kubeadm version
 
 the output is like:
 ```
-kubeadm version: &version.Info{Major:"1", Minor:"18", GitVersion:"v1.18.1", GitCommit:"52c56ce7a8272c798dbc29846288d7cd9fbae032", GitTreeState:"clean", BuildDate:"2020-04-16T11:54:15Z", GoVersion:"go1.13.9", Compiler:"gc", Platform:"linux/amd64"}
+kubeadm version: &version.Info{Major:"1", Minor:"17", GitVersion:"v1.17.4", GitCommit:"52c56ce7a8272c798dbc29846288d7cd9fbae032", GitTreeState:"clean", BuildDate:"2020-04-16T11:54:15Z", GoVersion:"go1.13.9", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
 Then, you need to change images.conf manually (to modify the all image versions if you need):
@@ -62,10 +62,10 @@ vi images.conf
 The image versions should be same as the GitVersion of kubeadm:
 
 ```
-k8s.gcr.io/kube-apiserver:v1.18.1
-k8s.gcr.io/kube-controller-manager:v1.18.1
-k8s.gcr.io/kube-scheduler:v1.18.1
-k8s.gcr.io/kube-proxy:v1.18.1
+k8s.gcr.io/kube-apiserver:v1.17.4
+k8s.gcr.io/kube-controller-manager:v1.17.4
+k8s.gcr.io/kube-scheduler:v1.17.4
+k8s.gcr.io/kube-proxy:v1.17.4
 k8s.gcr.io/pause:3.1
 k8s.gcr.io/etcd:3.4.3-0
 k8s.gcr.io/coredns:1.6.5
@@ -94,7 +94,7 @@ vi ./initSingleMaster.sh
 update the version to (you may need other versions.)
 
 ```
-version="v1.18.1"
+version="v1.17.4"
 ```
 
 Then, execute it:
