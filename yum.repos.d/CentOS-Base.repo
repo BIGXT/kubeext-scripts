@@ -2,7 +2,7 @@
 name=CentOS-$releasever
 enabled=1
 failovermethod=priority
-baseurl=http://mirrors.cloud.aliyuncs.com/centos/$releasever/os/$basearch/
+baseurl=http://mirrors.cloud.aliyuncs.com/centos/7/os/$basearch/
 gpgcheck=1
 gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7
 
@@ -10,7 +10,7 @@ gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7
 name=CentOS-$releasever
 enabled=1
 failovermethod=priority
-baseurl=http://mirrors.cloud.aliyuncs.com/centos/$releasever/updates/$basearch/
+baseurl=http://mirrors.cloud.aliyuncs.com/centos/7/updates/$basearch/
 gpgcheck=1
 gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7
 
@@ -18,6 +18,6 @@ gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7
 name=CentOS-$releasever
 enabled=1
 failovermethod=priority
-baseurl=http://mirrors.cloud.aliyuncs.com/centos/$releasever/extras/$basearch/
+baseurl=http://mirrors.cloud.aliyuncs.com/centos/7/extras/$basearch/
 gpgcheck=1
 gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7
