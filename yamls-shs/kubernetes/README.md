@@ -150,7 +150,7 @@ Then you need to learn a lot of commands to operate kubernetes.
 
 ## current bugs
 
-1. It is difficult to remove all the versions of kubernetes and docker.
+1. It is difficult to remove all the versions of kubernetes or docker.
 
 A possible solution can be:
 
@@ -166,10 +166,10 @@ yum -y install kubeadm
 
 Then copy the old information to remove the old
 
-
 ```
-yum -y remove yum -y remove <package name>-<version>.<platform>
-yum -y remove yum -y remove kubectl-1.18.2-0.x86_64
+yum -y remove <package name>-<version>.<platform>
+yum -y remove kubectl-1.18.2-0.x86_64
+yum -y install kubelet-1.17.4-0.x86_64 kubeadm-1.17.4-0.x86_64 kubectl-1.17.4-0.x86_64
 ```
 
 
