@@ -1,8 +1,11 @@
 
+## verified history
+
+20200422 17:00 centos7 kubernetes 1.17.4 aliyun 4core16GB, verified.
 
 ## important notes
 
-To install a single node kubernetes cluster. It is more complex when facing not well prepared machines (existing old versions, broken networks, e.g.,). It is near impossible to setup a tool without serveral years' production experience.
+To install a single node kubernetes cluster. It is more complex when facing not well prepared machines (existing old versions, broken networks, e.g.,). It is near impossible to setup a tool without several years' production experience.
 
 To make things easy, This note gives a limited installation with the following requirements.
 
@@ -144,5 +147,30 @@ kubectl get pod -n kube-system
 If it can print normally, It means the cluster is functional.
 
 Then you need to learn a lot of commands to operate kubernetes.
+
+## current bugs
+
+1. It is difficult to remove all the versions of kubernetes and docker.
+
+A possible solution can be:
+
+Find the installed versions:
+```
+yum list kubeadm --showduplicates
+```
+
+or try to install and get the old information
+```
+yum -y install kubeadm
+```
+
+Then copy the old information to remove the old
+
+
+```
+yum -y remove yum -y remove <package name>-<version>.<platform>
+yum -y remove yum -y remove kubectl-1.18.2-0.x86_64
+```
+
 
 
