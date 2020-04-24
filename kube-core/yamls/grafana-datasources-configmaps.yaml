@@ -14,3 +14,9 @@ data:
       type: prometheus
       url: http://prometheus-service.kube-system:9090
       access: proxy
+    - name: Loki
+      type: loki
+      access: proxy
+      url: http://loki:3100
+      jsonData:
+        maxLines: 1000

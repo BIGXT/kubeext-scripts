@@ -6,7 +6,7 @@
 ##
 ############################################
 
-version="v1.17.4"
+version="v1.18.2"
 
 function setupKube()
 {
@@ -41,7 +41,7 @@ function setupKube()
 
 function setupHelm()
 {
-  kubectl taint nodes --all node-role.kubernetes.io/master-
+#  kubectl taint nodes --all node-role.kubernetes.io/master-
 
   if [[ ! -f "/usr/bin/helm" ]]
   then

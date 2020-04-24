@@ -22,7 +22,7 @@ function setupCalico()
   rm -rf calico.yaml
   cp yamls/calico.yaml calico.yaml
   sed -i "s:POD_CIDR:${podcidr}:g" calico.yaml
-  kubectl create -f calico.yaml
+  kubectl apply -f calico.yaml
   rm -rf calico.yaml
 }
 

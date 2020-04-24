@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loki-core
+  namespace: kube-system
+  labels:
+    app: loki
+    component: core
+spec:
+  selector:
+    matchLabels:
+      app: loki
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: loki
+        component: core
+    spec:
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      containers:
+      - image: grafana/loki:1.4.1
+        name: loki-core
+        imagePullPolicy: IfNotPresent
+        args:
+          - '-config.file=/mnt/config/loki-config.yaml'
+        resources:
+        volumeMounts:
+           - name: config-volume
+             mountPath: /mnt/config
+      volumes:
+      - name: config-volume
+        hostPath:
+          path: /home/henry/kubeext-scripts/kube-core/yamls/loki
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loki-service
+  namespace: kube-system
+  labels:
+    app: loki
+    component: core
+spec:
+  type: NodePort
+  ports:
+    - port: 3100
+      nodePort: 31002
+  selector:
+    app: loki

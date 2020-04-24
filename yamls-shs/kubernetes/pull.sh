@@ -9,8 +9,8 @@
 VALUE1=gcr.azk8s.cn
 KEY1=gcr.io
 
-#VALUE2=gcr.azk8s.cn/google_containers
-VALUE2=registry.cn-hangzhou.aliyuncs.com/google_containers
+VALUE2=gcr.azk8s.cn/google_containers
+#VALUE2=registry.cn-hangzhou.aliyuncs.com/google_containers
 KEY2=k8s.gcr.io
 
 function download()

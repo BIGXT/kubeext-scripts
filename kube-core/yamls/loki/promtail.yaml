@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: promtail
+  namespace: kube-system
+  labels:
+    app: promtail
+spec:
+  selector:
+    matchLabels:
+      app: promtail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: promtail
+    spec:
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      containers:
+      - image: grafana/promtail:1.4.1
+        name: promtail
+        imagePullPolicy: IfNotPresent
+        args:
+          - '-config.file=/mnt/config/promtail-config.yaml'
+        resources:
+        volumeMounts:
+           - name: config-volume
+             mountPath: /mnt/config
+           - name: log-volume
+             mountPath: /var/log
+      volumes:
+      - name: config-volume
+        hostPath:
+          path: /home/henry/kubeext-scripts/kube-core/yamls/loki
+      - name: log-volume
+        hostPath:
+          path: /var/log
+---
