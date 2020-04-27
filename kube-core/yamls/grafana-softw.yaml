@@ -23,7 +23,7 @@ spec:
         - key: node-role.kubernetes.io/master
           effect: NoSchedule
       containers:
-      - image: grafana/grafana:6.0.0
+      - image: grafana/grafana:6.7.3
         name: grafana-core
         imagePullPolicy: IfNotPresent
         resources:
@@ -42,6 +42,8 @@ spec:
             value: "conf/provisioning"
           - name: GF_AUTH_ANONYMOUS_ORG_ROLE
             value: Admin
+          - name: GF_SECURITY_ALLOW_EMBEDDING
+            value: "true"
         readinessProbe:
           httpGet:
             path: /login
