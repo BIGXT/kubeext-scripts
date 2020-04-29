@@ -652,6 +652,11 @@ spec:
         prometheus.io/port: http-metrics
         prometheus.io/scrape: "true"
     spec:
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
       serviceAccountName: loki-promtail
       containers:
         - name: promtail
@@ -750,6 +755,11 @@ spec:
         prometheus.io/port: http-metrics
         prometheus.io/scrape: "true"
     spec:
+      nodeSelector:
+        node-role.kubernetes.io/master: ""
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
       serviceAccountName: loki
       securityContext:
         fsGroup: 10001
@@ -789,12 +799,8 @@ spec:
           securityContext:
             readOnlyRootFilesystem: true
           env:
-      nodeSelector:
-        {}
       affinity:
         {}
-      tolerations:
-        []
       terminationGracePeriodSeconds: 4800
       volumes:
         - name: config
@@ -802,35 +808,3 @@ spec:
             secretName: loki
         - name: storage
           emptyDir: {}
----
-# Source: loki-stack/templates/tests/loki-test-pod.yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  annotations:
-    "helm.sh/hook": test-success
-  labels:
-    app: loki-stack
-    chart: loki-stack-0.36.0
-    release: loki
-    heritage: Helm
-  name: loki-loki-stack-test
-spec:
-  containers:
-  - name: test
-    image: bats/bats:v1.1.0
-    args:
-    - /var/lib/loki/test.sh
-    env:
-    - name: LOKI_SERVICE
-      value: loki
-    - name: LOKI_PORT
-      value: "3100"
-    volumeMounts:
-    - name: tests
-      mountPath: /var/lib/loki
-  restartPolicy: Never
-  volumes:
-  - name: tests
-    configMap:
-      name: loki-loki-stack-test
